@@ -153,6 +153,9 @@
   <data name="EditLower" xml:space="preserve">
     <value>edit</value>
   </data>
+  <data name="EditPackage" xml:space="preserve">
+    <value>Edit package</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="PackageItem" xml:space="preserve">
     <value>Text</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Packages</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>

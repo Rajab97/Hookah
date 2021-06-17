@@ -9,5 +9,6 @@ namespace Hookah.Interfacas
 {
     public interface IPackageService : IBaseService<Package>
     {
+        Result<IQueryable<PackageItem>> GetPackageItems(Guid packageId);
     }
 }

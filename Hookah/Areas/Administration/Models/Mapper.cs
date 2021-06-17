@@ -11,10 +11,10 @@ namespace Hookah.Areas.Administration.Models
     {
         public Mapper()
         {
-            CreateMap<PackageItemViewModel, PackageItem>();
-            CreateMap<PackageViewModel, Package>();
-            CreateMap<SignUpViewModel, User>();
-            CreateMap<PersonalInfoViewModel, User>();
+            CreateMap<PackageItemViewModel, PackageItem>().ReverseMap();
+            CreateMap<PackageViewModel, Package>().ReverseMap();
+            CreateMap<SignUpViewModel, User>().ReverseMap();
+            CreateMap<PersonalInfoViewModel, User>().ReverseMap();
         }
     }
 }

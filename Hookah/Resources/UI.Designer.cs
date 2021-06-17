@@ -169,6 +169,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit package.
+        /// </summary>
+        public static string EditPackage {
+            get {
+                return ResourceManager.GetString("EditPackage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -246,6 +255,15 @@ namespace Hookah.Resources {
         public static string PackageItem {
             get {
                 return ResourceManager.GetString("PackageItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Packages.
+        /// </summary>
+        public static string Packages {
+            get {
+                return ResourceManager.GetString("Packages", resourceCulture);
             }
         }
         
