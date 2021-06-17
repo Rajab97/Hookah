@@ -1,0 +1,17 @@
+﻿<!--begin::Entry-->
+@using Hookah.Areas.Administration.ViewComponents
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Profile Overview-->
+        <div class="d-flex flex-row align-items-center justify-content-center">
+            <!--begin::Aside-->
+                @await Component.InvokeAsync(nameof(MyProfileLeftAside))
+                <!--end::Aside-->
+                <!--begin::Content-->
+                <!--end::Content-->
+</div>
+        <!--end::Profile Overview-->
+    </div>
+    <!--end::Container-->
+</div>

@@ -1,0 +1,31 @@
+﻿
+@model PackageItemViewModel
+@using Hookah.Extensions
+@{
+    var parentId = Guid.NewGuid().ToString().Replace("-", "");
+    var textId = Guid.NewGuid().ToString().Replace("-", "");
+}
+
+@using (Html.BeginCollectionItem(nameof(PackageViewModel.Items)))
+{
+
+    <div class="" id="@parentId" elementTypeX="SA">
+        <hr />
+        @Html.HiddenFor(m => m.Id)
+        <div class="align-content-lg-start  pb-2">
+            <button type="button" onclick="(function(){ $('#@parentId').prev().remove(); $('#@parentId').remove(); })();"
+                    class="btn btn-sm btn-danger">
+                <i class="fa fa-trash ml-1"></i>
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-row-margin">
+                <label asp-for="Text"></label>
+                <input asp-for="Text" id="@textId" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+        </div>
+
+
+    </div>
+}

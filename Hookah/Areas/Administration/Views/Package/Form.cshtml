@@ -1,0 +1,105 @@
+﻿@model PackageViewModel
+
+
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!--begin::Card-->
+                <div class="card card-custom gutter-b example example-compact">
+                    <div class="card-header">
+                        <h3 class="card-title">@UI.AddPackage</h3>
+                    </div>
+                    <form class="form" asp-action="Save" asp-controller="Package" method="post"
+                          data-ajax="true"
+                          data-ajax-method="POST"
+                          data-ajax-begin="onBegin"
+                          data-ajax-success="onSuccess"
+                          data-ajax-failure="onFailure" style="position:relative;">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <div class="col-lg-4">
+                                    <label asp-for="Title"></label>
+                                    <input asp-for="Title" class="form-control" />
+                                    <span asp-validation-for="Title" class="text-danger"></span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label asp-for="InitialPrice"></label>
+                                    <input asp-for="InitialPrice" class="form-control" />
+                                    <span asp-validation-for="InitialPrice" class="text-danger"></span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label asp-for="ExtraHourPrice"></label>
+                                    <input asp-for="ExtraHourPrice" class="form-control" />
+                                    <span asp-validation-for="ExtraHourPrice" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12" style="width:100%;">
+                                    <div id="Items" class="mb-5">
+                                        @foreach (var item in Model.Items)
+                                        {
+                                            <partial name="_PackageItem" model="item" />
+                                        }
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" onclick="addNewItemsRow(this, null)" class=" newItemButton">
+                                            @*<i class="fa  fa-plus-circle"></i>*@
+                                            @UI.NewItem <i class="fa fa-plus-square ml-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <button type="submit" class="btn btn-secondary">@UI.Submit</button>
+                                    <button type="submit" class="btn btn-secondary">@UI.Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script>
+            function onBegin() {
+                util.loading(true, "form");
+           }
+          function onSuccess(data) {
+            alert("success");
+                util.loading(false, "form");
+                window.location.href = "@Url.Action(nameof(PackageController.Index), PackageController.Name)";
+           }
+             function onFailure() {
+                 util.loading(false, "form");
+            }
+            function addNewItemsRow(elem) {
+
+                let actionUrl = "@Url.Action(nameof(PackageController.AddNewPackageItem), PackageController.Name,new {  })";
+
+                $.ajax(actionUrl,
+                    {
+                        method: "GET",
+                        success: function (html) {
+                            $("#Items").append(html);
+                            $("form").removeData("validator");
+                            $("form").removeData("unobtrusiveValidation");
+                            $.validator.unobtrusive.parse("form");
+                            //util.initialize();
+                            //calculateTotalAmount();
+                        }
+                    });
+
+                ///util.addRow(elem, "#Items", actionUrl, calculateTotalAmount);
+             }
+    </script>
+}

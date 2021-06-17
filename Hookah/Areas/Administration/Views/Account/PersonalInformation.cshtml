@@ -1,0 +1,97 @@
+﻿
+@using Hookah.Areas.Administration.Controllers
+@using Hookah.Resources
+@using Hookah.Areas.Administration.Models
+@using Hookah.Constants
+@using Hookah.Areas.Administration.ViewComponents
+@model PersonalInfoViewModel
+
+
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Profile Change Password-->
+        <div class="d-flex flex-column align-items-lg-start flex-lg-row">
+            <!--begin::Aside-->
+            @await Component.InvokeAsync(nameof(MyProfileLeftAside))
+            <!--end::Aside-->
+            <!--begin::Content-->
+            <div class="flex-row-fluid ml-lg-8">
+                <!--begin::Card-->
+                <div class="card card-custom">
+                    <!--begin::Header-->
+                    <div class="card-header py-3">
+                        <div class="card-title align-items-start flex-column">
+                            <h3 class="card-label font-weight-bolder text-dark">@UI.PersonalInfo</h3>
+                        </div>
+                        <div class="card-toolbar">
+                            <button type="button" onclick="submit()" class="btn btn-success mr-2">@UI.Submit</button>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Form-->
+                    <form class="form" asp-action="ChangePersonalInfo" asp-controller="Account" method="post"
+                          data-ajax="true"
+                          data-ajax-method="POST"
+                          data-ajax-begin="onBegin"
+                          data-ajax-success="onSuccess"
+                          data-ajax-failure="onFailure" id="changePersonalInfoForm">
+                        <div class="card-body">
+                            <input type="hidden" asp-for="UserId" />
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label text-alert">@UI.FirstName</label>
+                                <div class="col-lg-9 col-xl-6">
+                                    <input type="text" asp-for="FirstName" class="form-control form-control-lg form-control-solid" placeholder="@UI.FirstName" />
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label text-alert">@UI.LastName</label>
+                                <div class="col-lg-9 col-xl-6">
+                                    <input type="text" asp-for="LastName" class="form-control form-control-lg form-control-solid" placeholder="@UI.LastName" />
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label text-alert">@UI.Email</label>
+                                <div class="col-lg-9 col-xl-6">
+                                    <input type="email" asp-for="Email" class="form-control form-control-lg form-control-solid" placeholder="@UI.Email" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label text-alert">@UI.PhoneNumber</label>
+                                <div class="col-lg-9 col-xl-6">
+                                    <input type="tel" asp-for="PhoneNumber" class="form-control form-control-lg form-control-solid" placeholder="@UI.PhoneNumber" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--end::Form-->
+                </div>
+            </div>
+            <!--end::Content-->
+        </div>
+        <!--end::Profile Change Password-->
+    </div>
+    <!--end::Container-->
+</div>
+
+
+@section Scripts{
+    <script>
+
+            function submit() {
+                $("#changePersonalInfoForm").submit();
+            }
+           function onBegin() {
+
+           }
+           function onSuccess(data) {
+               window.location.href = "@Url.Action(nameof(AccountController.UserProfile), AccountController.Name,new { area=AreaConstants.Admin })";
+           }
+           function onFailure(data) {
+           }
+    </script>
+}
