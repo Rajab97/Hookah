@@ -1,0 +1,28 @@
+.footer-contact{
+    .call-buttons{
+        a{
+            margin: 0px 10px;
+        }
+    }
+    .footer-contact-nav{
+       margin-top: 50px;
+        ul{
+            li{
+                @include font-size($mobilePhones, $desktopsLarge, 14px, 20px);
+                a{
+                    padding: 3px 0px;
+                    color: rgba(255,255,255,.8);
+                    border-bottom: 1px solid rgba(255,255,255,.3);
+                    transition: all .2s ease;
+                    &:hover{
+                        border-bottom: 1px solid rgba(255,255,255,.8);; 
+                    }
+                }
+                span{
+                    padding: 3px 10px;
+                    color: rgba(255,255,255,.8);
+                }
+            }
+        }
+    }
+}

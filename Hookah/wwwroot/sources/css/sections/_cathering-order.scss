@@ -1,0 +1,57 @@
+#cathering-order{
+    .order-form{
+        margin-top: 50px;
+        margin-bottom: 100px;
+       form{
+           text-align: center;
+            .form-control{
+                background-color: transparent;
+                color: $textColor;
+                border: 1px solid transparent;
+                border-bottom: 1px solid rgba($color: $textColor, $alpha: 0.8);
+                &:focus{
+                    outline: none;
+                    box-shadow: 0px 1px 0px 0px $textColor;
+                }
+                input{
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                option {
+                    margin: 40px;
+                    background: $backColor;
+                    color: $textColor;
+                    cursor: pointer;
+                }
+            }
+            .call-button{
+                display: block;
+                width: 25%;
+                margin: 0 auto;
+                margin-top: 25px;
+            }
+       }
+    }
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: $textColor;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $textColor;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $textColor;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $textColor;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: $textColor;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+    color: $textColor;
+}

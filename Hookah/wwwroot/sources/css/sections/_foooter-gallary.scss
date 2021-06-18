@@ -1,0 +1,64 @@
+@media (max-width: $mobilePhones) {
+    .foooter-gallary{
+        padding-bottom: 100px;
+        .gallery{
+            div{
+                overflow: hidden;
+                a{
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                   
+                }
+            }
+           
+        }
+    }
+}
+
+@media (min-width: $mobilePhones) {
+    .foooter-gallary{
+        padding-bottom: 100px;
+        .footer-gallary-header{
+            color: $textColor;
+            text-align: center;
+            margin-bottom: 30px;
+            @include font-size($mobilePhones, $desktopsLarge, 22px, 40px);
+            a{
+                color: $textColor;
+                font-weight: 300;
+                font-family: 'Roboto Slab', serif;
+                padding-bottom: 3px;
+                border-bottom: 1px solid rgba($color: $textColor, $alpha: 0.4);
+                transition: all .2s ease-in-out;
+                &:hover{
+                    border-bottom: 1px solid rgba($color: $textColor, $alpha: 1);
+                }
+            }
+        }
+        .gallery{
+            div{
+                overflow: hidden;
+                a{
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                   
+                }
+            }
+           
+        }
+    }
+}
+
+@media (min-width: $tablets) {}
+
+@media (min-width: $laptops) {}
+
+@media (min-width: $desktops) {
+   
+}
+
+@media (min-width: $desktopsLarge) {}

@@ -1,0 +1,27 @@
+#faq-questions{
+    .faq-item{
+        margin-bottom: 75px;
+        h2{
+            text-align: left;
+            color: $textColor;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 400;
+            font-style: normal;
+            @include font-size($mobilePhones, $desktopsLarge, 28px, 32px);
+            line-height: 1.5em;
+            padding: 25px 0px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+        P{
+            text-align: left;
+            color: $textColor;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 300;
+            font-style: normal;
+            @include font-size($mobilePhones, $desktopsLarge, 14px, 18px);
+            line-height: 1.5em;
+            padding-bottom: 10px;
+        }
+    }
+}

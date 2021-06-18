@@ -23,6 +23,7 @@ namespace Hookah.Data
         }
         public DbSet<Package> Packages { get; set; }
         public DbSet<PackageItem> PackageItems { get; set; }
+        public DbSet<Menu> Menus { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

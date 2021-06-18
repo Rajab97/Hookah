@@ -1,0 +1,22 @@
+.footer-social-links{
+    ul{
+        width: 100%;
+        margin: 35px 0px;
+        &:hover li a{
+            color: rgba(255,255,255,.4);
+        }
+        li{
+            a{
+                color: $textColor;
+                padding: 15px;
+                transition: all .2s ease-in-out;
+                &:hover{
+                    color: $textColor;
+                }
+                i{
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+#cathering-content-details{
+    > h2{
+        text-align: center;
+        color: $textColor;
+        font-family: 'Roboto Slab', serif;
+        font-weight: 400;
+        font-style: normal;
+        @include font-size($mobilePhones, $desktopsLarge, 24px, 32px);
+        line-height: 1.5em;
+        letter-spacing: 7px;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+    }
+    ul{
+        li{
+            text-align: center;
+            padding: 10px;
+            span{
+                color: $textColor;
+                text-align: center;
+                letter-spacing: 2px;
+                font-weight: 300;
+                text-transform: uppercase;
+                line-height: 25px;
+                @include font-size($mobilePhones, $desktopsLarge, 14px, 18px);
+            }
+        }
+    }
+    > p{
+        color: rgba($color: $textColor, $alpha: 0.8);
+        text-align: center;
+        letter-spacing: 2px;
+        font-weight: 300;
+        text-transform: uppercase;
+        line-height: 25px;
+        margin-top: 25px;
+        @include font-size($mobilePhones, $desktopsLarge, 10px, 14px);
+    }
+    > h3{
+        color: rgba($color: $textColor, $alpha: 1);
+        text-align: center;
+        letter-spacing: 2px;
+        font-weight: 600;
+        text-transform: uppercase;
+        line-height: 25px;
+        margin-top: 25px;
+        @include font-size($mobilePhones, $desktopsLarge, 12px, 16px);
+    }
+}

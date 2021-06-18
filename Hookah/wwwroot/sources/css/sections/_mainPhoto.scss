@@ -1,0 +1,111 @@
+@media (max-width: $mobilePhones) {
+    #mainPhoto{
+        position: relative;
+        .background{
+                width: 100%;
+                height: auto;
+            .image{
+                position: relative;
+                overflow: hidden;
+                box-sizing: border-box;
+                picture{
+                    img{
+                        width: 100%;
+                        height: auto;
+                        position: relative;
+                        z-index: 11;
+                    }
+                }
+            }
+            .backgroundContent{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 15;
+                h2{
+                    font-family: 'Roboto Slab', serif;
+                    color: $textColor;
+                    @include font-size($mobilePhones, $desktopsLarge, 35px, 60px);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $mobilePhones) {
+    #mainPhoto{
+        position: relative;
+        .background{
+                width: 100%;
+                height: 100vh;
+            .image{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 10;
+                overflow: hidden;
+                box-sizing: border-box;
+                img{
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                    z-index: 11;
+                    &.desktop{
+                        display: none;
+                    }
+                    &.tablet{
+                        display: block;
+                    }
+                }
+                
+            }
+            .backgroundContent{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 15;
+                h2{
+                    font-family: 'Roboto Slab', serif;
+                    color: $textColor;
+                    @include font-size($mobilePhones, $desktopsLarge, 35px, 60px);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $tablets) {}
+
+@media (min-width: $laptops) {
+    #mainPhoto{
+        .background{
+            .image{
+                img{
+                    &.desktop{
+                        display: block;
+                    }
+                    &.tablet{
+                        display: none;
+                    }
+                }
+               
+            }
+            .backgroundContent{
+                h2{
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktops) {}
+
+@media (min-width: $desktopsLarge) {
+  
+}

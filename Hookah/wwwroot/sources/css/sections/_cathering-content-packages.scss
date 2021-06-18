@@ -1,0 +1,175 @@
+#cathering-content-packages{
+    .packages{
+        margin-top: 50px;
+        .package{
+            .intro{
+            padding: 15px;
+            height: 650px;
+            position: relative;
+            margin: 15px 0px;
+            border: 2px solid rgba($color: $textColor, $alpha: 0.8);
+            .title{
+                h1{
+                    @include font-size($mobilePhones, $desktopsLarge, 18px, 24px);
+                    padding: 25px 0px;
+                }
+                .bottom-line{
+                    width: 40%;
+                }
+            }
+            > h6{
+                text-align: center;
+                color: $textColor;
+                font-family: 'Roboto Slab', serif;
+                font-weight: 400;
+                font-style: normal;
+                @include font-size($mobilePhones, $desktopsLarge, 14px, 18px);
+                line-height: 1.5em;
+                padding: 25px 0px;
+                padding-bottom: 10px;
+                text-transform: uppercase;
+            }
+            ul{
+                margin: 25px 0px;
+                li{
+                    padding: 10px 0px;
+                    text-align: center;
+                    border-bottom: 1px dotted rgba($color: $textColor, $alpha: .4);
+                    span{
+                        color: rgba($color: $textColor, $alpha: 0.8);
+                        letter-spacing: 2px;
+                        font-weight: 300;
+                        text-transform: uppercase;
+                        @include font-size($mobilePhones, $desktopsLarge, 10px, 14px);
+                    }
+                }
+            }
+            hr{
+                margin: 0;
+            }
+            
+            .package-bottom{
+                position: absolute;
+                bottom: 15px;
+                width: 95%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: $backColor;
+                .picing{
+                    margin: 15px 0px;
+                    h5{
+                        text-align: center;
+                        color: $textColor;
+                        font-family: 'Roboto Slab', serif;
+                        font-weight: 400;
+                        font-style: normal;
+                        @include font-size($mobilePhones, $desktopsLarge, 14px, 18px);
+                        line-height: 1.5em;
+                        padding: 10px 0px;
+                        strong{
+                            margin-left: 5px;
+                            @include font-size($mobilePhones, $desktopsLarge, 16px, 18px);
+                        }
+                    }
+                }
+                a{
+                    display: block;
+                    margin: 0 auto;
+                    width: 75%;
+                    text-align: center;
+                }
+            }
+            }
+        }
+    }
+}
+
+@media (max-width: $mobilePhones) {
+    #cathering-content-packages{
+        box-sizing: border-box;
+        width: 75%;
+        margin: 0 auto;
+        .packages{
+            .package{
+                .intro{
+                height: 650px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $mobilePhones) {
+    #cathering-content-packages{
+        box-sizing: border-box;
+        width: 60%;
+        margin: 0 auto;
+        .packages{
+            .package{
+                .intro{
+                height: 650px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $tablets) {
+    #cathering-content-packages{
+        box-sizing: border-box;
+        width: 85%;
+        margin: 0 auto;
+        .packages{
+            .package{
+                .intro{
+                height: 650px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $laptops) {
+    #cathering-content-packages{
+        box-sizing: border-box;
+        width: 80%;
+        margin: 0 auto;
+        .packages{
+            .package{
+                .intro{
+                height: 650px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktops) {
+    #cathering-content-packages{
+        box-sizing: border-box;
+        width: 70%;
+        margin: 0 auto;
+        .packages{
+            .package{
+                .intro{
+                height: 650px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktopsLarge) {
+    #cathering-content-packages{
+        box-sizing: border-box;
+        width: 60%;
+        margin: 0 auto;
+        .packages{
+            .package{
+                .intro{
+                height: 650px;
+                }
+            }
+        }
+    }
+}

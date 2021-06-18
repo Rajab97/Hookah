@@ -1,48 +1,121 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Hookah</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shsisa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="sources/plugins/simplelightbox-master/simple-lightbox.min.css">
+    <link rel="stylesheet" href="sources/fonts/fontawesome/all.min.css">
+    <link rel="stylesheet" href="sources/css/style.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Hookah</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+        <nav class="desktop-top">
+            <ul class="d-flex align-items-center justify-content-between">
+                <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
+                <li><a asp-controller="Cataring" asp-action="Index">Catering</a></li>
+                <li><a class="nav-title" asp-controller="Home" asp-action="Index">Baku</a></li>
+                <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
+            </ul>
+        </nav>
+        <nav class="mobile-top">
+            <div class="hamburger-menu-button d-flex align-items-center justify-content-center">
+                <div class="hamburger-menu-button-item top">
+                </div>
+            </div>
+            <div class="mobile-nav-content">
+                <div class="inner d-flex align-items-center">
+                    <ul>
+                        <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
+                        <li><a asp-controller="Cataring" asp-action="Index">Catering</a></li>
+                        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                        <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <nav class="desktop-scroll-top">
+            <div class="content">
+                <ul class="d-flex align-items-center justify-content-between">
+                    <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
+                    <li><a asp-controller="Cataring" asp-action="Index">Catering</a></li>
+                    <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                    <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1 class="header-nav-title">Baku</h1>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Hookah - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    @RenderBody()
+    <footer>
+        <section class="foooter-gallary">
+            <h1 class="footer-gallary-header">Follow <a href="">Harrahookah</a></h1>
+            <div class="gallery section-common-nopadding row">
+                <div class=" col-6 col-md-3 pr-2 pl-2">
+                    <a href="sources/img/gallery1.jpeg" class="big"><img src="sources/img/gallery1.jpeg" alt="" title="Beautiful Image" /></a>
+                </div>
+                <div class=" col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
+                    <a href="sources/img/gallery2.jpeg"><img src="sources/img/gallery2.jpeg" alt="" title="" /></a>
+                </div>
+                <div class="col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
+                    <a href="sources/img/gallery6.jpeg"><img src="sources/img/gallery6.jpeg" alt="" title="" /></a>
+                </div>
+                <div class="col-6  col-md-3 pr-2 pl-2 mb-2 mt-2">
+                    <a href="sources/img/gallery3.jpeg"><img src="sources/img/gallery3.jpeg" alt="" title="Beautiful Image" /></a>
+                </div>
+                <div class="col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
+                    <a href="sources/img/gallery4.jpeg"><img src="sources/img/gallery4.jpeg" alt="" title="" /></a>
+                </div>
+                <div class="col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
+                    <a href="sources/img/gallery5.jpeg"><img src="sources/img/gallery5.jpeg" alt="" title="" /></a>
+                </div>
+                <div class="col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
+                    <a href="sources/img/gallery7.jpeg"><img src="sources/img/gallery7.jpeg" alt="" title="" /></a>
+                </div>
+                <div class="col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
+                    <a href="sources/img/gallery8.jpeg"><img src="sources/img/gallery8.jpeg" alt="" title="" /></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="footer-social-links">
+                <ul class="d-flex align-items-center justify-content-center">
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <div class="call-buttons d-flex align-items-center justify-content-center">
+                    <a href="#" class="call-button">Call harra now</a>
+                    <a href="#" class="call-button-white">Request a call</a>
+                </div>
+                <div class="footer-contact-nav">
+                    <ul class="d-flex justify-content-center align-items-center">
+                        <li><a href="#">Menu</a></li>
+                        <li><span>/</span></li>
+                        <li><a href="#">Cathering</a></li>
+                        <li><span>/</span></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><span>/</span></li>
+                        <li><a href="#">Faq</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="sources/plugins/simplelightbox-master/simple-lightbox.jquery.min.js"></script>
+    <script src="sources/js/scripts.js"></script>
 </body>
 </html>

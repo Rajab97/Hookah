@@ -1,0 +1,36 @@
+.simple-lightbox{
+    .sl-close{
+        color: $textColor;
+    }
+    .sl-navigation{
+        .sl-prev{
+            color: $textColor;
+        }
+        .sl-next{
+            color: $textColor;
+        }
+    }
+    .sl-spinner{
+        border: 5px solid $textColor;
+        div{
+            color: $textColor;
+        }
+    }
+    .sl-counter{
+        color: $textColor;
+    }
+    .sl-image{
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        .sl-caption{
+            opacity: 0;
+            transition: all .2s ease-in-out;
+        }
+        &:hover .sl-caption{
+            opacity: 1;
+        }
+    }
+}
+.sl-overlay{
+    background-color: rgba(16,8,6,.97);
+}
