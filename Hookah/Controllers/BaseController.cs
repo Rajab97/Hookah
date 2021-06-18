@@ -44,10 +44,13 @@ namespace Hookah.Controllers
             StringBuilder orderExpression = new StringBuilder();
             for (int i = 0; i < options.Order.Count; i++)
             {
-                orderExpression.Append(options.Columns[options.Order[i].Column].Data + " " + options.Order[i].Dir);
-                if (i < options.Order.Count - 1)
+                if (options.Columns[options.Order[i].Column].Orderable)
                 {
-                    orderExpression.Append(", ");
+                    orderExpression.Append(options.Columns[options.Order[i].Column].Data + " " + options.Order[i].Dir);
+                    if (i < options.Order.Count - 1)
+                    {
+                        orderExpression.Append(", ");
+                    }
                 }
             }
 
@@ -61,10 +64,10 @@ namespace Hookah.Controllers
                 lastIsOrOperator = false;
                 for (int i = 0; i < options.Columns.Count; i++)
                 {
-                    var propType = entityType.GetProperty(options.Columns[i].Data);
-
                     if (options.Columns[i].Searchable && !String.IsNullOrEmpty(options.Columns[i].Search.Value))
                     {
+                        var propType = entityType.GetProperty(options.Columns[i].Data);
+
                         if (propType.PropertyType == typeof(string))
                         {
                             searchExpression.Append(options.Columns[i].Data + ".Contains(\"" + options.Search.Value + "\")");
@@ -85,10 +88,10 @@ namespace Hookah.Controllers
                 lastIsAndOperator = false;
                 for (int i = 0; i < options.Columns.Count; i++)
                 {
-                    var propType = entityType.GetProperty(options.Columns[i].Data);
-                    
                     if (!String.IsNullOrEmpty(options.Search.Value) && options.Columns[i].Searchable)
                     {
+                        var propType = entityType.GetProperty(options.Columns[i].Data);
+
                         if (!lastIsOrOperator)
                         {
                             searchExpression.Append(orOperator);
@@ -115,10 +118,13 @@ namespace Hookah.Controllers
             selectExpression.Append("new { ");
             for (int i = 0; i < options.Columns.Count; i++)
             {
-                selectExpression.Append(options.Columns[i].Data);
-                if (i < options.Columns.Count - 1)
+                if (!String.IsNullOrEmpty(options.Columns[i].Data))
                 {
-                    selectExpression.Append(", ");
+                    selectExpression.Append(options.Columns[i].Data);
+                    if (i < options.Columns.Count - 1)
+                    {
+                        selectExpression.Append(", ");
+                    }
                 }
             }
             selectExpression.Append(" }");

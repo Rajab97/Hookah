@@ -1,0 +1,21 @@
+﻿
+@model IQueryable<PackageItem>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@UI.PackageItem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var counter = 0; }
+        @foreach (var item in Model)
+        {
+            counter++;
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@item.Text</td>
+            </tr>
+        }
+    </tbody>
+</table>

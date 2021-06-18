@@ -9,7 +9,7 @@
                 <!--begin::Card-->
                 <div class="card card-custom gutter-b example example-compact">
                     <div class="card-header">
-                        <h3 class="card-title">@UI.AddPackage</h3>
+                        <h3 class="card-title">@(Model.Id == Guid.Empty ? UI.AddPackage : UI.EditPackage)</h3>
                     </div>
                     <form class="form" asp-action="Save" asp-controller="Package" method="post"
                           data-ajax="true"
@@ -75,7 +75,6 @@
                 util.loading(true, "form");
            }
           function onSuccess(data) {
-            alert("success");
                 util.loading(false, "form");
                 window.location.href = "@Url.Action(nameof(PackageController.Index), PackageController.Name)";
            }

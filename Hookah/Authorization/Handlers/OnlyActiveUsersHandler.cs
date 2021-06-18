@@ -22,15 +22,17 @@ namespace Hookah.Authorization.Handlers
         }
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, OnlyActiveUsersRequirement requirement)
         {
-           var user = await _userManager.GetUserAsync(_httpContext.HttpContext.User);
+           
+            var user = await _userManager.GetUserAsync(_httpContext.HttpContext.User);
 
             if (user == null)
-                context.Succeed(requirement);
+            {
+                return;
+            }
 
             if (!user.IsBlocked)
                 context.Succeed(requirement);
 
-            return ;
         }
     }
 }

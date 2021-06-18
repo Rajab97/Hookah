@@ -3,6 +3,7 @@ using Hookah.Areas.Administration.Models;
 using Hookah.Constants;
 using Hookah.Controllers;
 using Hookah.Interfacas;
+using Hookah.Resources;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -38,7 +39,27 @@ namespace Hookah.Areas.Administration.Controllers
             };
             return View("Form", model);
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid? packageId)
+        {
+            if (!packageId.HasValue)
+                return AjaxFailureResult(Result.Failure(ExceptionMessages.FatalError));
 
+            var result = await _serviceFacade.GetModelByIdAsync(packageId.Value);
+
+            if (result.IsSucceed)
+                return View("Form", result.Data);
+
+            return AjaxFailureResult(result);
+        }
+        [HttpPost]
+        public IActionResult GetPackages(GridFilterModel options)
+        {
+            var result = _serviceFacade.GetAll();
+            if (result.IsSucceed)
+                return Filter(result.Data,options);
+            return AjaxFailureResult(result);
+        }
         public async Task<IActionResult> Save(PackageViewModel model)
         {
             var result = await _serviceFacade.SaveAsync(model);
@@ -51,6 +72,19 @@ namespace Hookah.Areas.Administration.Controllers
         {
             var model = new PackageItemViewModel();
             return PartialView("_PackageItem",model);
+        }
+
+        [HttpGet]
+        public IActionResult GetPackageItems(Guid? packageId)
+        {
+            if (!packageId.HasValue)
+                return AjaxFailureResult(Result.Failure(ExceptionMessages.FatalError));
+
+            var result = _serviceFacade.GetPackageItems(packageId.Value);
+            if (!result.IsSucceed)
+                return AjaxFailureResult(result);
+
+            return PartialView("_PackageItemIndex",result.Data);
         }
     }
 }
