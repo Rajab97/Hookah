@@ -137,10 +137,14 @@ namespace Hookah
         {
             services.AddScoped(typeof(IBaseService<>),typeof(BaseService<>));
             services.AddScoped<IPackageService, PackageService>();
+            services.AddScoped<IMenuFruitHeadService, MenuFruitHeadService>();
+            services.AddScoped<IMenuService, MenuService>();
         }
         private void RegisterServiceFacades(IServiceCollection services)
         {
             services.AddScoped<IPackageServiceFacade, PackageServiceFacade>();
+            services.AddScoped<IMenuFruitHeadServiceFacade, MenuFruitHeadServiceFacade>();
+            services.AddScoped<IMenuServiceFacade, MenuServiceFacade>();
         }
     }
 }

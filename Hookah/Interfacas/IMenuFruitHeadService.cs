@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hookah.Interfacas
 {
-    public interface IMenuService : IBaseService<Menu>
+    public interface IMenuFruitHeadService : IBaseService<MenuFruitHead>
     {
-        public Task<Result<Menu>> GetDefaultDataAsync();
     }
 }

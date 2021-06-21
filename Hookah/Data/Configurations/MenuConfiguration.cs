@@ -17,8 +17,9 @@ namespace Hookah.Data.Configurations
             builder.Property(I => I.ImageTitle).HasMaxLength(100).IsRequired();
             builder.Property(I => I.FruitHeadTitle).HasMaxLength(100).IsRequired();
             builder.Property(I => I.FlavorsTitle).HasMaxLength(100).IsRequired();
-            builder.Property(I => I.Image).HasMaxLength(300).IsRequired();
-
+            builder.Property(I => I.ImageLP).HasMaxLength(500).IsRequired();
+            builder.Property(I => I.ImagePL).HasMaxLength(500).IsRequired();
+            builder.Property(I => I.ImageMB).HasMaxLength(500).IsRequired();
         }
     }
 }

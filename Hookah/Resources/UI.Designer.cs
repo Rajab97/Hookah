@@ -70,6 +70,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new fruit head.
+        /// </summary>
+        public static string AddFruitHead {
+            get {
+                return ResourceManager.GetString("AddFruitHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new user.
         /// </summary>
         public static string AddNewUser {
@@ -160,6 +169,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit fruit head.
+        /// </summary>
+        public static string EditFruitHead {
+            get {
+                return ResourceManager.GetString("EditFruitHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to edit.
         /// </summary>
         public static string EditLower {
@@ -201,6 +219,69 @@ namespace Hookah.Resources {
         public static string FirstName {
             get {
                 return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flavors section text.
+        /// </summary>
+        public static string FlavorsText {
+            get {
+                return ResourceManager.GetString("FlavorsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flavors section title.
+        /// </summary>
+        public static string FlavorsTitle {
+            get {
+                return ResourceManager.GetString("FlavorsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fruit heads section text.
+        /// </summary>
+        public static string FruitHeadText {
+            get {
+                return ResourceManager.GetString("FruitHeadText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fruit heads section title.
+        /// </summary>
+        public static string FruitHeadTitle {
+            get {
+                return ResourceManager.GetString("FruitHeadTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previously added laptop size image.
+        /// </summary>
+        public static string ImageLP {
+            get {
+                return ResourceManager.GetString("ImageLP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previously added mobile size image.
+        /// </summary>
+        public static string ImageMB {
+            get {
+                return ResourceManager.GetString("ImageMB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previously added IPad size image.
+        /// </summary>
+        public static string ImagePL {
+            get {
+                return ResourceManager.GetString("ImagePL", resourceCulture);
             }
         }
         
@@ -295,6 +376,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Previously uploaded image.
+        /// </summary>
+        public static string PreviousUploadedImage {
+            get {
+                return ResourceManager.GetString("PreviousUploadedImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remember me.
         /// </summary>
         public static string RememberMe {
@@ -345,6 +435,15 @@ namespace Hookah.Resources {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top image title.
+        /// </summary>
+        public static string TopImageTitle {
+            get {
+                return ResourceManager.GetString("TopImageTitle", resourceCulture);
             }
         }
         

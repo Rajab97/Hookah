@@ -1,0 +1,118 @@
+﻿@using Hookah.Resources
+<script>
+    // Class definition
+            var files = {};
+            var totalSize = 0;
+            var uppyDashboard;
+            var KTUppy = function () {
+                const Tus = Uppy.Tus;
+                const ProgressBar = Uppy.ProgressBar;
+                const StatusBar = Uppy.StatusBar;
+                const FileInput = Uppy.FileInput;
+                const Informer = Uppy.Informer;
+                const ImageEditor = Uppy.ImageEditor;
+                // to get uppy companions working, please refer to the official documentation here: https://uppy.io/docs/companion/
+                const Dashboard = Uppy.Dashboard;
+                const Dropbox = Uppy.Dropbox;
+                const GoogleDrive = Uppy.GoogleDrive;
+                const Instagram = Uppy.Instagram;
+                const Webcam = Uppy.Webcam;
+
+                var initUppy1 = function () {
+                    var id = '#kt_uppy_1';
+
+                    var options = {
+                        proudlyDisplayPoweredByUppy: false,
+                        target: id,
+                        inline: true,
+                        replaceTargetContent: true,
+                        showProgressDetails: true,
+                        hideUploadButton: true,
+                        hideRetryButton: true,
+                        hidePauseResumeButton: true,
+                        showProgressDetails: true,
+                        browserBackButtonClose: true,
+                        plugins: ['ImageEditor', 'Webcam'],
+                    }
+
+                     uppyDashboard = Uppy.Core({
+                        id: 'uppy',
+                        autoProceed: false,
+                        allowMultipleUploads: true,
+                        restrictions: {
+                            allowedFileTypes: ['image/*'],
+                            maxFileSize: @(5 * 1024 * 1024),
+                            maxTotalFileSize: @(5 * 1 * 1024 * 1024),
+                            maxNumberOfFiles: 1,
+                            minNumberOfFiles: 1
+                        }
+                    });
+
+                    uppyDashboard.use(Dashboard, options);
+                 @*   uppyDashboard.use(Webcam, {
+                        target: Dashboard,
+                        modes: [
+                            //'video-audio',
+                            //'video-only',
+                            //'audio-only',
+                            'picture'
+                        ],
+                    });*@
+
+                    uppyDashboard.use(ImageEditor, {
+                        id: 'ImageEditor',
+                        target: Dashboard,
+                        quality: 0.8,
+                        cropperOptions: {
+                            viewMode: 1,
+                            background: false,
+                            autoCropArea: 1,
+                            responsive: true
+                        },
+                        actions: {
+                            revert: true,
+                            rotate: true,
+                            flip: true,
+                            zoomIn: true,
+                            zoomOut: true,
+                            cropSquare: true,
+                            cropWidescreen: true,
+                            cropWidescreenVertical: true
+                        }
+                    })
+                    uppyDashboard.on('file-added', (file) => {
+                        totalSize += file.data.size;
+                        let reader = new FileReader();
+                        reader.readAsDataURL(file.data);
+                        reader.onloadend = function () {
+                            let base64data = reader.result;
+                            files[file.id] = base64data;
+                        };
+                    })
+                    uppyDashboard.on('file-removed', (file, reason) => {
+                        totalSize -= file.data.size;
+                        delete files[file.id];
+                    })
+                    uppyDashboard.on('file-editor:complete', (updatedFile) => {
+                        totalSize += updatedFile.data.size;
+                        let reader = new FileReader();
+                        reader.readAsDataURL(updatedFile.data);
+                        reader.onloadend = function () {
+                            let base64data = reader.result;
+                            files[updatedFile.id] = base64data;
+                        };
+                    })
+                }
+                return {
+                    // public functions
+                    init: function () {
+                        initUppy1();
+                    }
+                };
+            }();
+            jQuery(document).ready(function () {
+                KTUtil.ready(function () {
+                    KTUppy.init();
+                });
+            });
+</script>

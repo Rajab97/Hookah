@@ -168,6 +168,20 @@ namespace Hookah.Areas.Administration.Controllers
         }
         [HttpPost]
         [Authorize(Roles = RoleNames.SuperAdmin)]
+        public async Task<IActionResult> DeleteUser(Guid userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            if (user == null)
+            {
+                return AjaxFailureResult(Result.Failure(ExceptionMessages.UserNotFound));
+            }
+            var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+                return Json("Ok");
+            return AjaxFailureResult(Result.Failure(result.Errors.FirstOrDefault()?.Description));
+        }
+        [HttpPost]
+        [Authorize(Roles = RoleNames.SuperAdmin)]
         public async Task<IActionResult> ChangeStatusOfUser(Guid userId, bool isBlocked)
         {
             try

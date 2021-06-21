@@ -57,7 +57,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <button type="submit" class="btn btn-secondary">@UI.Submit</button>
-                                    <button type="submit" class="btn btn-secondary">@UI.Cancel</button>
+                                    <button type="button" onclick="cancel()" class="btn btn-secondary">@UI.Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -71,6 +71,9 @@
 @section Scripts{
 
     <script>
+        function cancel() {
+            window.location.href = '@Url.Action(nameof(PackageController.Index), PackageController.Name)';
+        }
             function onBegin() {
                 util.loading(true, "form");
            }

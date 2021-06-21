@@ -4,7 +4,7 @@
 @using Hookah.Areas.Administration.Models
 @using Hookah.Constants
 @using Hookah.Areas.Administration.ViewComponents
-@section Styles{ 
+@section Styles{
     <link href="~/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
 }
 
@@ -14,21 +14,18 @@
         <!--begin::Profile Change Password-->
         <div class="d-flex flex-column align-items-lg-start flex-lg-row">
             <!--begin::Aside-->
-            @await Component.InvokeAsync(nameof(MyProfileLeftAside))
-            <!--end::Aside-->
-            <!--begin::Content-->
             <div class="flex-row-fluid ml-lg-8">
                 <!--begin::Card-->
                 <div class="card card-custom">
                     <div class="card-header">
                         <div class="card-title">
-                           
-                            <h3 class="card-label">@UI.AllUsers</h3>
+
+                            <h3 class="card-label">Fruit Heads</h3>
                         </div>
                         <div class="card-toolbar">
                             <!--begin::Dropdown-->
                             <!--begin::Button-->
-                            <a href="@Url.Action(nameof(AccountController.AddNewUser),AccountController.Name,new { area=AreaConstants.Admin })" class="btn btn-primary font-weight-bolder">
+                            <a href="@Url.Action(nameof(MenuFruitHeadController.Add),MenuFruitHeadController.Name,new { area=AreaConstants.Admin })" class="btn btn-primary font-weight-bolder">
                                 <span class="svg-icon svg-icon-md">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -39,7 +36,7 @@
                                         </g>
                                     </svg>
                                     <!--end::Svg Icon-->
-                                </span>New User
+                                </span>New Fruit Head
                             </a>
                             <!--end::Button-->
                         </div>
@@ -49,12 +46,8 @@
                         <table class="table table-bordered table-hover table-checkable" id="kt_datatable" style="margin-top: 13px !important">
                             <thead>
                                 <tr>
-                                    <th>Username</th>
-                                    <th>Firstname</th>
-                                    <th>Lastname</th>
-                                    <th>Email</th>
-                                    <th>Phonenumber</th>
-                                    <th>Blocked Status</th>
+                                    <th>Title</th>
+                                    <th>Image</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -106,7 +99,7 @@
                     pageLength: 10,
                     lengthMenu: [[5, 10, 15 , 25 ,50], [ 5, 10, 15 , 25 ,50]],
                     ajax: {
-                        url: '@Url.Action(nameof(AccountController.AllUsersData),AccountController.Name)',
+                        url: '@Url.Action(nameof(MenuFruitHeadController.GetData), MenuFruitHeadController.Name)',
                         type: 'POST',
                         datatype:"json",
                         data: {
@@ -117,13 +110,9 @@
                         },
                     },
                     columns: [
-                        { data: '@nameof(Hookah.Models.User.UserName)', autowidth: true },
-                        { data: '@nameof(Hookah.Models.User.FirstName)', autowidth: true },
-                        { data: '@nameof(Hookah.Models.User.LastName)', autowidth: true },
-                        { data: '@nameof(Hookah.Models.User.Email)', autowidth: true},
-                        { data: '@nameof(Hookah.Models.User.PhoneNumber)', autowidth: true},
-                        { data: '@nameof(Hookah.Models.User.IsBlocked)', autowidth: true },
-                        { data: '@nameof(Hookah.Models.User.Id)', autowidth: true, searchable: false, responsivePriority: -1 }
+                        { data: '@nameof(Hookah.Models.MenuFruitHead.Name)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.MenuFruitHead.ImagePath)',searchable:false, autowidth: true },
+                        { data: '@nameof(Hookah.Models.MenuFruitHead.Id)', autowidth: true, searchable: false, responsivePriority: -1 }
                     ],
                     columnDefs: [
                        @* {
@@ -132,25 +121,21 @@
                             "searchable": false
                         },*@
                         {
-                            width: '50px',
-                            targets: 5,
+                            targets: 1,
+                            width: "300px",
                             render: function (data, type, full, meta) {
-                                var status = {
-                                    1: { 'title': 'Blocked', 'class': ' label-light-danger' },
-                                    0: { 'title': 'Active', 'class': ' label-light-success' },
-                                };
-                                data = data ? 1 : 0;
-                                if (typeof status[data] === 'undefined') {
-                                    return data;
-                                }
                                 console.log(data);
-                                return '<span class="label label-lg font-weight-bold' + status[data].class + ' label-inline">' + status[data].title + '</span>';
+                                console.log(full);
+                                return ` <div class="d-flex align-items-center justify-content-center">
+                                        <img style="width:80%;height:auto;" class="symbol" src="\\` + data + `" alt="photo">
+                                </div>`;
                             }
                         },
                         {
-                            targets: 6,
+                            targets: 2,
                             title: 'Actions',
                             orderable: false,
+                            width: "50px",
                             render: function (data, type, full, meta) {
                                 return '\
                                         <div class="dropdown dropdown-inline">\
@@ -159,9 +144,8 @@
 	                                        </a>\
 							  	            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
 									            <ul class="nav nav-hoverable flex-column">\
-							    		            <li class="nav-item"><a class="nav-link" href="javascript:;" onclick=deleteUser("' + full.Id + '")><i class="nav-icon la la-trash"></i><span class="nav-text">Delete</span></a></li>\
-							    		            <li class="nav-item"><a class="nav-link" href="javascript:;" onclick=blockUser("'+ full.Id + '")><i class="nav-icon la la-lock"></i><span class="nav-text">Block</span></a></li>\
-							    		            <li class="nav-item"><a class="nav-link" href="javascript:;" onclick=unblockUser("'+ full.Id +'")><i class="nav-icon la la-lock-open"></i><span class="nav-text">Activate</span></a></li>\
+							    		            <li class="nav-item"><a class="nav-link" href="javascript:;" onclick=remove("' + full.Id + '")><i class="nav-icon la la-trash"></i><span class="nav-text">Delete</span></a></li>\
+							    		            <li class="nav-item"><a class="nav-link" href="javascript:;" onclick=edit("'+ full.Id +'")><i class="nav-icon la la-lock-open"></i><span class="nav-text">Edit</span></a></li>\
 									            </ul>\
 							  	            </div>\
 							            </div>\
@@ -227,28 +211,16 @@
             KTDatatablesDataSourceAjaxServer.init();
         });
 
-        function blockUser(id) {
-            ajax.sendRequest('@Url.Action(nameof(AccountController.ChangeStatusOfUser),AccountController.Name)', "POST", {
-                userId: id,
-                isBlocked: true
+
+        function remove(id) {
+              ajax.sendRequest('@Url.Action(nameof(MenuFruitHeadController.Remove),MenuFruitHeadController.Name)', "POST", {
+                Id: id
             }, function () {
                     dt.ajax.reload();
             });
         }
-        function unblockUser(id) {
-            ajax.sendRequest('@Url.Action(nameof(AccountController.ChangeStatusOfUser),AccountController.Name)', "POST", {
-                userId: id,
-                isBlocked: false
-            }, function () {
-                    dt.ajax.reload();
-            });
-        }
-        function deleteUser(id) {
-              ajax.sendRequest('@Url.Action(nameof(AccountController.DeleteUser),AccountController.Name)', "POST", {
-                userId: id
-            }, function () {
-                    dt.ajax.reload();
-            });
+        function edit(id) {
+            window.location.href = '@Url.Action(nameof(MenuFruitHeadController.Edit),MenuFruitHeadController.Name)?id='+id;
         }
     </script>
 }

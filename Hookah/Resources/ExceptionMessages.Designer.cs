@@ -97,6 +97,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File must be added.
+        /// </summary>
+        public static string FileMustBeAdded {
+            get {
+                return ResourceManager.GetString("FileMustBeAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email format is incorrect.
         /// </summary>
         public static string InvalidEmail {

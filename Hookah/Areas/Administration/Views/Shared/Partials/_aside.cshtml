@@ -57,11 +57,26 @@
                         <span class="menu-text">Dashboard</span>
                     </a>
                 </li>
-                <li class="menu-section">
-                    <h4 class="menu-text">Custom</h4>
-                    <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+                <li class="menu-item menu-item-active" aria-haspopup="true">
+                    <a href="@Url.Action(nameof(MenuFruitHeadController.Index),MenuFruitHeadController.Name)" class="menu-link">
+                        <span class="svg-icon menu-icon">
+                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+                            <i class="fas fa-apple-alt"></i>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-text">Fruit Heads</span>
+                    </a>
                 </li>
-                
+                <li class="menu-item menu-item-active" aria-haspopup="true">
+                    <a href="@Url.Action(nameof(MenuController.Index),MenuController.Name)" class="menu-link">
+                        <span class="svg-icon menu-icon">
+                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+                            <i class="fas fa-book-reader"></i>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-text">Menu Details</span>
+                    </a>
+                </li>
             </ul>
 
             <!--end::Menu Nav-->
