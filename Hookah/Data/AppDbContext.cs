@@ -25,6 +25,7 @@ namespace Hookah.Data
         public DbSet<PackageItem> PackageItems { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<MenuFruitHead> MenuFruitHeads { get; set; }
+        public DbSet<MenuFlavor> MenuFlovors { get; set; }
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             foreach (var entity in ChangeTracker.Entries())
