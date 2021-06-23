@@ -17,6 +17,7 @@ namespace Hookah.Areas.Administration.Models
             CreateMap<PersonalInfoViewModel, User>().ReverseMap();
             CreateMap<MenuFruitHeadViewModel, MenuFruitHead>().ReverseMap();
             CreateMap<MenuViewModel, Menu>().ReverseMap();
+            CreateMap<MenuFlavorViewModel, MenuFlavor>().ReverseMap();
         }
     }
 }

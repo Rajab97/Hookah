@@ -123,6 +123,9 @@
   <data name="AddFruitHead" xml:space="preserve">
     <value>Add new fruit head</value>
   </data>
+  <data name="AddMenuFlavor" xml:space="preserve">
+    <value>Add new menu flavor</value>
+  </data>
   <data name="AddNewUser" xml:space="preserve">
     <value>Add new user</value>
   </data>
@@ -159,6 +162,9 @@
   <data name="EditLower" xml:space="preserve">
     <value>edit</value>
   </data>
+  <data name="EditMenuFlavor" xml:space="preserve">
+    <value>Edit menu flavor</value>
+  </data>
   <data name="EditPackage" xml:space="preserve">
     <value>Edit package</value>
   </data>
@@ -176,6 +182,9 @@
   </data>
   <data name="FlavorsTitle" xml:space="preserve">
     <value>Flavors section title</value>
+  </data>
+  <data name="FormTile" xml:space="preserve">
+    <value>Form section title</value>
   </data>
   <data name="FruitHeadText" xml:space="preserve">
     <value>Fruit heads section text</value>

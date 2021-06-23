@@ -139,12 +139,16 @@ namespace Hookah
             services.AddScoped<IPackageService, PackageService>();
             services.AddScoped<IMenuFruitHeadService, MenuFruitHeadService>();
             services.AddScoped<IMenuService, MenuService>();
+            services.AddScoped<IMenuFlavorService, MenuFlavorService>();
+
         }
         private void RegisterServiceFacades(IServiceCollection services)
         {
             services.AddScoped<IPackageServiceFacade, PackageServiceFacade>();
             services.AddScoped<IMenuFruitHeadServiceFacade, MenuFruitHeadServiceFacade>();
             services.AddScoped<IMenuServiceFacade, MenuServiceFacade>();
+            services.AddScoped<IMenuFlavorServiceFacade, MenuFlavorServiceFacade>();
+
         }
     }
 }

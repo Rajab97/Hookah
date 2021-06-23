@@ -12,50 +12,51 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace Hookah.Servicefacades
 {
-    public class MenuServiceFacade : IMenuServiceFacade
+    public class ContactServiceFacade:IContactServiceFacade
     {
         private static Dictionary<string, string> fileExtentionsVsContentTypePairs = new Dictionary<string, string>() {
             { "image/jpeg",".jpeg" }
         };
-        private readonly IMenuService _service;
         private readonly IMapper _mapper;
+        private readonly IContactService _service;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IConfiguration _configuration;
-
-        public MenuServiceFacade(IMenuService service,IMapper mapper,IUnitOfWork unitOfWork,IWebHostEnvironment webHostEnvironment,IConfiguration configuration)
+        public ContactServiceFacade(IMapper mapper, IContactService service, IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment, IConfiguration configuration)
         {
-            _service = service;
             _mapper = mapper;
+            _service = service;
             _unitOfWork = unitOfWork;
-            this._webHostEnvironment = webHostEnvironment;
-            this._configuration = configuration;
+            _webHostEnvironment = webHostEnvironment;
+            _configuration = configuration;
         }
-        public async Task<Result<MenuViewModel>> GetDefaultModelAsync()
+
+        public async Task<Result<ContactViewModel>> GetDefaultModelAsync()
         {
             try
             {
                 var result = await _service.GetDefaultDataAsync();
                 if (result.IsSucceed)
                 {
-                    var model = _mapper.Map<MenuViewModel>(result.Data);
-                    return Result<MenuViewModel>.Succeed(model);
+                    var model = _mapper.Map<ContactViewModel>(result.Data);
+                    return Result<ContactViewModel>.Succeed(model);
                 }
-                return Result<MenuViewModel>.Succeed(new MenuViewModel());
+                return Result<ContactViewModel>.Succeed(new ContactViewModel());
             }
             catch (ApplicationException ex)
             {
-                return Result<MenuViewModel>.Failure(ex.Message);
+                return Result<ContactViewModel>.Failure(ex.Message);
             }
             catch (Exception e)
             {
-                return Result<MenuViewModel>.Failure(e);
+                return Result<ContactViewModel>.Failure(e);
             }
         }
 
-        public async Task<Result> SaveAsync(MenuViewModel model)
+        public async Task<Result> SaveAsync(ContactViewModel model)
         {
             var isEdit = model.Id != Guid.Empty;
             var isAnyFileAdded = model.FieldName != null && model.FieldName.Any();
@@ -66,10 +67,10 @@ namespace Hookah.Servicefacades
             List<string> updatedFilePaths = new List<string>();
             try
             {
-                Menu dto = null;
+                Contact dto = null;
                 if (!isEdit)
                 {
-                    dto = _mapper.Map<Menu>(model);
+                    dto = _mapper.Map<Contact>(model);
                 }
                 else
                 {
@@ -78,10 +79,10 @@ namespace Hookah.Servicefacades
                     {
                         return Result.Failure(ExceptionMessages.NotFound);
                     }
-                   _mapper.Map(model, exData.Data);
+                    _mapper.Map(model, exData.Data);
                 }
 
-               // var previousImagePath = dto.ImagePath;
+                // var previousImagePath = dto.ImagePath;
                 if (isAnyFileAdded)
                 {
                     for (int i = 0; i < model.FileName.Count; i++)
@@ -107,7 +108,7 @@ namespace Hookah.Servicefacades
                         var exFilePath = dto.GetType().GetProperty(model.FieldName[i]).GetValue(dto);
                         if (exFilePath != null)
                             updatedFilePaths.Add(exFilePath.ToString());
-                        
+
                         dto.GetType().GetProperty(model.FieldName[i]).SetValue(dto, filePath.Substring(filePath.IndexOf(_configuration.GetValue<string>("FileSettings:FolderName"))));
                     }
                 }
@@ -122,7 +123,7 @@ namespace Hookah.Servicefacades
                         var fullPath = Path.Combine(_webHostEnvironment.WebRootPath, filePath);
                         if (File.Exists(fullPath)) File.Delete(fullPath);
                     }
-                 
+
                 }
 
                 if (result.IsSucceed)
@@ -141,7 +142,7 @@ namespace Hookah.Servicefacades
                 }
                 return Result.Failure(ex);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 foreach (var path in filePaths)
                 {

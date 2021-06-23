@@ -79,6 +79,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new menu flavor.
+        /// </summary>
+        public static string AddMenuFlavor {
+            get {
+                return ResourceManager.GetString("AddMenuFlavor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new user.
         /// </summary>
         public static string AddNewUser {
@@ -187,6 +196,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit menu flavor.
+        /// </summary>
+        public static string EditMenuFlavor {
+            get {
+                return ResourceManager.GetString("EditMenuFlavor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit package.
         /// </summary>
         public static string EditPackage {
@@ -237,6 +255,15 @@ namespace Hookah.Resources {
         public static string FlavorsTitle {
             get {
                 return ResourceManager.GetString("FlavorsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form section title.
+        /// </summary>
+        public static string FormTile {
+            get {
+                return ResourceManager.GetString("FormTile", resourceCulture);
             }
         }
         
