@@ -18,6 +18,11 @@ namespace Hookah.Areas.Administration.Models
             CreateMap<MenuFruitHeadViewModel, MenuFruitHead>().ReverseMap();
             CreateMap<MenuViewModel, Menu>().ReverseMap();
             CreateMap<MenuFlavorViewModel, MenuFlavor>().ReverseMap();
+            CreateMap<HomeViewModel, Home>().ReverseMap();
+            CreateMap<HomeLinkViewModel, HomeLink>().ReverseMap();
+            CreateMap<CatheringViewModel, Cathering>().ReverseMap();
+            CreateMap<CatheringEventViewModel, CatheringEvent>().ReverseMap();
+            CreateMap<HowItWorksStepViewModel, HowItWorksStep>().ReverseMap();
         }
     }
 }
