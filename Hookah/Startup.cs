@@ -140,6 +140,7 @@ namespace Hookah
             services.AddScoped<IMenuFruitHeadService, MenuFruitHeadService>();
             services.AddScoped<IMenuService, MenuService>();
             services.AddScoped<IMenuFlavorService, MenuFlavorService>();
+            services.AddScoped<IContactService, ContactService>();
 
         }
         private void RegisterServiceFacades(IServiceCollection services)
@@ -148,6 +149,8 @@ namespace Hookah
             services.AddScoped<IMenuFruitHeadServiceFacade, MenuFruitHeadServiceFacade>();
             services.AddScoped<IMenuServiceFacade, MenuServiceFacade>();
             services.AddScoped<IMenuFlavorServiceFacade, MenuFlavorServiceFacade>();
+            services.AddScoped<IContactServiceFacade, ContactServiceFacade>();
+
 
         }
     }
