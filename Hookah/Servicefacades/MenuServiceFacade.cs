@@ -78,7 +78,7 @@ namespace Hookah.Servicefacades
                     {
                         return Result.Failure(ExceptionMessages.NotFound);
                     }
-                   _mapper.Map(model, exData.Data);
+                   dto = _mapper.Map(model, exData.Data);
                 }
 
                // var previousImagePath = dto.ImagePath;

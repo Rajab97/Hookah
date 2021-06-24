@@ -1,0 +1,243 @@
+﻿@model HomeLinkViewModel
+@section Styles{ 
+    <link href="~/assets/plugins/uppy/uppy.bundle.css"  rel="stylesheet"/>
+}
+
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!--begin::Card-->
+                <div class="card card-custom gutter-b example example-compact">
+                    <div class="card-header">
+                        <h3 class="card-title">@(Model.Id == Guid.Empty ? UI.AddHomeLink : UI.EditHomeLink)</h3>
+                    </div>
+                    <form class="form" enctype="multipart/form-data" asp-action="Save" asp-controller="HomeLink" method="post"
+                          data-ajax="true"
+                          data-ajax-method="POST"
+                          data-ajax-begin="onBegin"
+                          data-ajax-success="onSuccess"
+                          data-ajax-failure="onFailure" style="position:relative;">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="ImagePath"/>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <div class="col-lg-6">
+                                    <label asp-for="Name"></label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label asp-for="ButtonText"></label>
+                                    <input asp-for="ButtonText" class="form-control" />
+                                    <span asp-validation-for="ButtonText" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                    <label asp-for="Link"></label>
+                                    <input asp-for="Link" type="url" class="form-control" />
+                                    <span asp-validation-for="Link" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="card card-custom card-stretch">
+                                        <div class="card-header">
+                                            <div class="card-title">
+                                                <h3 class="card-label">Add new files</h3>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="uppy" id="home_link">
+                                                <div class="uppy-dashboard"></div>
+                                                <div class="uppy-progress"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @if (Model.Id != Guid.Empty)
+                                {
+                                    <div class="col-lg-6 mb-3 mb-lg-0">
+                                        <label asp-for="ImagePath"></label>
+                                        <img class="symbol" style="width:100%;height:auto;" src="/@Model.ImagePath" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <button type="submit" onclick="submitOnClicked(this)" class="btn btn-secondary">@UI.Submit</button>
+                                    <button type="button" onclick="cancel()" class="btn btn-secondary">@UI.Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/assets/plugins/uppy/uppy.bundle.js"></script>
+    <script>
+          function cancel() {
+            window.location.href = '@Url.Action(nameof(HomeLinkController.Index), HomeLinkController.Name)';
+        }
+            function onBegin() {
+                util.loading(true, "form");
+           }
+          function onSuccess(data) {
+                util.loading(false, "form");
+                window.location.href = "@Url.Action(nameof(HomeLinkController.Index), HomeLinkController.Name)";
+           }
+             function onFailure() {
+                 util.loading(false, "form");
+            }
+        function submitOnClicked(e) {
+            //$('#fileMaxError').addClass('showFileError');
+            @*var tot = Math.ceil((totalSize / 1024) / 1000);
+            if (tot > parseInt(@Html.Raw(Formats.FileSize))) {
+                $('#fileMaxError').removeClass('showFileError');
+                throw new Error('File size exception');
+            }*@
+            $(".files").remove();
+            $(".filetype").remove();
+            $(".filename").remove();
+            $(".fieldname").remove();
+            console.log(uppyDashboard.state.files);
+            console.log(files);
+            if (files.length != 0) {
+                for (var file in uppyDashboard.state.files) {
+                    $("form").append(" <input class='files' type='hidden' value='" + files[uppyDashboard.state.files[file].id] + "'  name='Base64String' />");
+                    $("form").append(" <input class='filetype' type='hidden'value='" + uppyDashboard.state.files[file].data.type + "' name='ContentType' />");
+                    $("form").append(" <input class='filename' type='hidden' value='" + uppyDashboard.state.files[file].data.name + "'  name='FileName' />");
+                    $("form").append(" <input class='fieldname' type='hidden' value='@(nameof(HomeLink.ImagePath))'  name='FieldName' />");
+                }
+            }
+        }
+    </script>
+    <script>
+            var files = {};
+            var totalSize = 0;
+            var uppyDashboard;
+
+            var totalSizeTest = 0;
+            var uppyDashboardTest;
+            var KTUppy = function () {
+                const Tus = Uppy.Tus;
+                const ProgressBar = Uppy.ProgressBar;
+                const StatusBar = Uppy.StatusBar;
+                const FileInput = Uppy.FileInput;
+                const Informer = Uppy.Informer;
+                const ImageEditor = Uppy.ImageEditor;
+                // to get uppy companions working, please refer to the official documentation here: https://uppy.io/docs/companion/
+                const Dashboard = Uppy.Dashboard;
+                const Dropbox = Uppy.Dropbox;
+                const GoogleDrive = Uppy.GoogleDrive;
+                const Instagram = Uppy.Instagram;
+                const Webcam = Uppy.Webcam;
+
+                var options = {
+                    proudlyDisplayPoweredByUppy: false,
+                    inline: true,
+                    replaceTargetContent: true,
+                    showProgressDetails: true,
+                    hideUploadButton: true,
+                    hideRetryButton: true,
+                    hidePauseResumeButton: true,
+                    showProgressDetails: true,
+                    browserBackButtonClose: true,
+                    plugins: ['ImageEditor'],
+                }
+
+                var initUppy1 = function () {
+                     uppyDashboard = Uppy.Core({
+                        id: 'uppy',
+                        autoProceed: false,
+                        allowMultipleUploads: false,
+                        restrictions: {
+                            allowedFileTypes: ['image/*'],
+                            maxFileSize: @(5 * 1024 * 1024),
+                            maxTotalFileSize: @(5 * 1 * 1024 * 1024),
+                            maxNumberOfFiles: 1,
+                            minNumberOfFiles: 1
+                        }
+                     });
+                    options.target = '#home_link';
+                    uppyDashboard.use(Dashboard, options);
+                 @*   uppyDashboard.use(Webcam, {
+                        target: Dashboard,
+                        modes: [
+                            //'video-audio',
+                            //'video-only',
+                            //'audio-only',
+                            'picture'
+                        ],
+                    });*@
+
+                    uppyDashboard.use(ImageEditor, {
+                        id: 'ImageEditor',
+                        target: Dashboard,
+                        quality: 0.8,
+                        cropperOptions: {
+                            viewMode: 1,
+                            background: false,
+                            autoCropArea: 1,
+                            responsive: true
+                        },
+                        actions: {
+                            revert: true,
+                            rotate: true,
+                            flip: true,
+                            zoomIn: true,
+                            zoomOut: true,
+                            cropSquare: true,
+                            cropWidescreen: true,
+                            cropWidescreenVertical: true
+                        }
+                    })
+                    uppyDashboard.on('file-added', (file) => {
+                        totalSize += file.data.size;
+                        let reader = new FileReader();
+                        reader.readAsDataURL(file.data);
+
+                        reader.onloadend = function () {
+                            let base64data = reader.result;
+                            files[file.id] = base64data;
+                        };
+                    })
+                    uppyDashboard.on('file-removed', (file, reason) => {
+                        totalSize -= file.data.size;
+                        delete files[file.id];
+                    })
+                    uppyDashboard.on('file-editor:complete', (updatedFile) => {
+                        totalSize += updatedFile.data.size;
+                        let reader = new FileReader();
+                        reader.readAsDataURL(updatedFile.data);
+                        reader.onloadend = function () {
+                            let base64data = reader.result;
+                            files[updatedFile.id] = base64data;
+                        };
+                    })
+                }
+                return {
+                    // public functions
+                    init: function () {
+                        initUppy1();
+                    }
+                };
+        }();
+
+       
+
+            jQuery(document).ready(function () {
+                KTUtil.ready(function () {
+                    KTUppy.init();
+                });
+            });
+    </script>
+}

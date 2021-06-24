@@ -70,11 +70,38 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new cathering event.
+        /// </summary>
+        public static string AddCatheringEvent {
+            get {
+                return ResourceManager.GetString("AddCatheringEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new fruit head.
         /// </summary>
         public static string AddFruitHead {
             get {
                 return ResourceManager.GetString("AddFruitHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new link.
+        /// </summary>
+        public static string AddHomeLink {
+            get {
+                return ResourceManager.GetString("AddHomeLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new step.
+        /// </summary>
+        public static string AddHowItWorksStep {
+            get {
+                return ResourceManager.GetString("AddHowItWorksStep", resourceCulture);
             }
         }
         
@@ -120,6 +147,51 @@ namespace Hookah.Resources {
         public static string AllUsers {
             get {
                 return ResourceManager.GetString("AllUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base title.
+        /// </summary>
+        public static string BaseTitle {
+            get {
+                return ResourceManager.GetString("BaseTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base title bold paragraph.
+        /// </summary>
+        public static string BaseTitleBoldText {
+            get {
+                return ResourceManager.GetString("BaseTitleBoldText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base title paragraph.
+        /// </summary>
+        public static string BaseTitleText {
+            get {
+                return ResourceManager.GetString("BaseTitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Button text.
+        /// </summary>
+        public static string ButtonText {
+            get {
+                return ResourceManager.GetString("ButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Call button text.
+        /// </summary>
+        public static string CallButtonText {
+            get {
+                return ResourceManager.GetString("CallButtonText", resourceCulture);
             }
         }
         
@@ -178,11 +250,38 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit cathering event.
+        /// </summary>
+        public static string EditCatheringEvent {
+            get {
+                return ResourceManager.GetString("EditCatheringEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit fruit head.
         /// </summary>
         public static string EditFruitHead {
             get {
                 return ResourceManager.GetString("EditFruitHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit home link.
+        /// </summary>
+        public static string EditHomeLink {
+            get {
+                return ResourceManager.GetString("EditHomeLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit current step.
+        /// </summary>
+        public static string EditHowItWorksStep {
+            get {
+                return ResourceManager.GetString("EditHowItWorksStep", resourceCulture);
             }
         }
         
@@ -219,6 +318,15 @@ namespace Hookah.Resources {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event name.
+        /// </summary>
+        public static string EventName {
+            get {
+                return ResourceManager.GetString("EventName", resourceCulture);
             }
         }
         
@@ -286,6 +394,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to How it works title.
+        /// </summary>
+        public static string HowItWorksTitle {
+            get {
+                return ResourceManager.GetString("HowItWorksTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Previously added laptop size image.
         /// </summary>
         public static string ImageLP {
@@ -331,6 +448,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to URL.
+        /// </summary>
+        public static string Link {
+            get {
+                return ResourceManager.GetString("Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My profile.
         /// </summary>
         public static string MyProfile {
@@ -358,6 +484,24 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Step order number.
+        /// </summary>
+        public static string OrderNumber {
+            get {
+                return ResourceManager.GetString("OrderNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order title.
+        /// </summary>
+        public static string OrderTitle {
+            get {
+                return ResourceManager.GetString("OrderTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Text.
         /// </summary>
         public static string PackageItem {
@@ -372,6 +516,15 @@ namespace Hookah.Resources {
         public static string Packages {
             get {
                 return ResourceManager.GetString("Packages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paragraph text.
+        /// </summary>
+        public static string PageParagraphText {
+            get {
+                return ResourceManager.GetString("PageParagraphText", resourceCulture);
             }
         }
         
@@ -421,6 +574,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select package title.
+        /// </summary>
+        public static string SelectPackageTitle {
+            get {
+                return ResourceManager.GetString("SelectPackageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sign in.
         /// </summary>
         public static string SignIn {
@@ -435,6 +597,15 @@ namespace Hookah.Resources {
         public static string SignOut {
             get {
                 return ResourceManager.GetString("SignOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text.
+        /// </summary>
+        public static string StepText {
+            get {
+                return ResourceManager.GetString("StepText", resourceCulture);
             }
         }
         

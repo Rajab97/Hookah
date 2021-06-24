@@ -120,8 +120,17 @@
   <data name="AccountSettingAndMore" xml:space="preserve">
     <value>Account settings and more</value>
   </data>
+  <data name="AddCatheringEvent" xml:space="preserve">
+    <value>Add new cathering event</value>
+  </data>
   <data name="AddFruitHead" xml:space="preserve">
     <value>Add new fruit head</value>
+  </data>
+  <data name="AddHomeLink" xml:space="preserve">
+    <value>Add new link</value>
+  </data>
+  <data name="AddHowItWorksStep" xml:space="preserve">
+    <value>Add new step</value>
   </data>
   <data name="AddMenuFlavor" xml:space="preserve">
     <value>Add new menu flavor</value>
@@ -137,6 +146,21 @@
   </data>
   <data name="AllUsers" xml:space="preserve">
     <value>All users</value>
+  </data>
+  <data name="BaseTitle" xml:space="preserve">
+    <value>Base title</value>
+  </data>
+  <data name="BaseTitleBoldText" xml:space="preserve">
+    <value>Base title bold paragraph</value>
+  </data>
+  <data name="BaseTitleText" xml:space="preserve">
+    <value>Base title paragraph</value>
+  </data>
+  <data name="ButtonText" xml:space="preserve">
+    <value>Button text</value>
+  </data>
+  <data name="CallButtonText" xml:space="preserve">
+    <value>Call button text</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
@@ -156,8 +180,17 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="EditCatheringEvent" xml:space="preserve">
+    <value>Edit cathering event</value>
+  </data>
   <data name="EditFruitHead" xml:space="preserve">
     <value>Edit fruit head</value>
+  </data>
+  <data name="EditHomeLink" xml:space="preserve">
+    <value>Edit home link</value>
+  </data>
+  <data name="EditHowItWorksStep" xml:space="preserve">
+    <value>Edit current step</value>
   </data>
   <data name="EditLower" xml:space="preserve">
     <value>edit</value>
@@ -170,6 +203,9 @@
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="EventName" xml:space="preserve">
+    <value>Event name</value>
   </data>
   <data name="ExtraHourPrice" xml:space="preserve">
     <value>Extra price per hour</value>
@@ -192,6 +228,9 @@
   <data name="FruitHeadTitle" xml:space="preserve">
     <value>Fruit heads section title</value>
   </data>
+  <data name="HowItWorksTitle" xml:space="preserve">
+    <value>How it works title</value>
+  </data>
   <data name="ImageLP" xml:space="preserve">
     <value>Previously added laptop size image</value>
   </data>
@@ -207,6 +246,9 @@
   <data name="LastName" xml:space="preserve">
     <value>Lastname</value>
   </data>
+  <data name="Link" xml:space="preserve">
+    <value>URL</value>
+  </data>
   <data name="MyProfile" xml:space="preserve">
     <value>My profile</value>
   </data>
@@ -216,11 +258,20 @@
   <data name="NewPassword" xml:space="preserve">
     <value>New password</value>
   </data>
+  <data name="OrderNumber" xml:space="preserve">
+    <value>Step order number</value>
+  </data>
+  <data name="OrderTitle" xml:space="preserve">
+    <value>Order title</value>
+  </data>
   <data name="PackageItem" xml:space="preserve">
     <value>Text</value>
   </data>
   <data name="Packages" xml:space="preserve">
     <value>Packages</value>
+  </data>
+  <data name="PageParagraphText" xml:space="preserve">
+    <value>Paragraph text</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -237,11 +288,17 @@
   <data name="RememberMe" xml:space="preserve">
     <value>Remember me</value>
   </data>
+  <data name="SelectPackageTitle" xml:space="preserve">
+    <value>Select package title</value>
+  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Sign in</value>
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>Sign out</value>
+  </data>
+  <data name="StepText" xml:space="preserve">
+    <value>Text</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Submit</value>
