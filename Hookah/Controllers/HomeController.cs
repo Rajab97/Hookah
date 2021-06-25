@@ -32,14 +32,14 @@ namespace Hookah.Controllers
             var homeModel = await _homeServiceFacade.GetDefaultModelAsync();
             var homeLinkModel =  _homeLinkServiceFacade.GetData();
 
-            if (homeModel.IsSucceed && homeLinkModel.IsSucceed)
+            if (homeModel.IsSucceed || homeLinkModel.IsSucceed)
             {
                 HomeFullViewModel homeFullViewModel = new HomeFullViewModel();
                 homeFullViewModel.HomeViewModel = homeModel.Data;
                 homeFullViewModel.HomeLinkViewModels = homeLinkModel.Data;
                 return View(homeFullViewModel);
             }
-            return View(new HomeFullViewModel());
+            return View(new HomeFullViewModel() {  HomeViewModel = new HomeViewModel(), HomeLinkViewModels = new List<HomeLinkViewModel>() });
         }
 
         public IActionResult Privacy()

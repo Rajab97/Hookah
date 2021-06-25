@@ -9,6 +9,6 @@ namespace Hookah.ViewModels
     public class HomeFullViewModel
     {
         public HomeViewModel HomeViewModel { get; set; }
-        public IQueryable<HomeLinkViewModel> HomeLinkViewModels { get; set; }
+        public IEnumerable<HomeLinkViewModel> HomeLinkViewModels { get; set; }
     }
 }
