@@ -1,4 +1,5 @@
 ﻿using Hookah.Abstracts;
+using Hookah.Data.Configurations;
 using Hookah.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -35,6 +36,7 @@ namespace Hookah.Data
         public DbSet<HowItWorksStep> HowItWorksSteps{ get; set; }
 
         public DbSet<SiteConfiguration> SiteConfiguration { get; set; }
+        public DbSet<Faq> Faqs { get; set; }
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             foreach (var entity in ChangeTracker.Entries())

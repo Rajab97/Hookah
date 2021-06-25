@@ -145,6 +145,8 @@ namespace Hookah
             services.AddScoped<ICatheringService, CatheringService>();
             services.AddScoped<ISiteConfigurationService, SiteConfigurationService>();
             services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IFaqService, FaqService>();
+
 
         }
         private void RegisterServiceFacades(IServiceCollection services)
@@ -161,6 +163,8 @@ namespace Hookah
             services.AddScoped<IFooterGalaryItemServiceFacade, FooterGalaryItemServiceFacade>();
             services.AddScoped<ISiteConfigurationServiceFacade, SiteConfigurationServiceFacade>();
             services.AddScoped<IContactServiceFacade, ContactServiceFacade>();
+            services.AddScoped<IFaqServiceFacade, FaqServiceFacade>();
+
 
 
         }

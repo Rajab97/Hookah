@@ -10,9 +10,8 @@ namespace Hookah.Interfacas
 {
     public interface IHomeLinkServiceFacade
     {
-        public Task<Result<HomeLinkViewModel>> GetDefaultModelAsync();
         public Task<Result> SaveAsync(HomeLinkViewModel model);
-        public Result<IQueryable<HomeLink>> GetData();
+        public Result<IQueryable<HomeLinkViewModel>> GetData();
         public Task<Result> RemoveAsync(Guid id);
         public Task<Result<HomeLinkViewModel>> GetModelAsync(Guid id);
     }

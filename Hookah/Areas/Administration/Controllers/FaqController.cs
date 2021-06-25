@@ -13,27 +13,28 @@ namespace Hookah.Areas.Administration.Controllers
 {
     [Area(AreaConstants.Admin)]
     [Authorize()]
-    public class ContactController : BaseController
+    public class FaqController : BaseController
     {
-        public const string Name = "Contact";
-        private readonly IContactServiceFacade _serviceFacade;
-        public ContactController(IContactServiceFacade serviceFacade)
+        public const string Name = "Faq";
+        private readonly IFaqServiceFacade _service;
+
+        public FaqController(IFaqServiceFacade service)
         {
-            _serviceFacade = serviceFacade;
+            _service = service;
         }
         public async Task<IActionResult> Index()
         {
-            var model = await _serviceFacade.GetDefaultModelAsync();
+           var model =  await _service.GetDefaultModelAsync();
             if (model.IsSucceed)
             {
-                return PartialView("Form", model.Data);
+                return PartialView("Form",model.Data);
             }
-            return PartialView("Form", new ContactViewModel());
+            return PartialView("Form", new FaqViewModel());
         }
 
-        public async Task<IActionResult> Save(ContactViewModel model)
+        public async Task<IActionResult> Save(FaqViewModel model)
         {
-           var result = await _serviceFacade.SaveAsync(model);
+            var result = await _service.SaveAsync(model);
             if (result.IsSucceed)
             {
                 return Json("Ok");

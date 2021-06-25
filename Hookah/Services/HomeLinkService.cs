@@ -58,16 +58,18 @@ namespace Hookah.Services
                 {
                     return Result<HomeLink>.Failure(ExceptionMessages.NotFound);
                 }
-                return Result<Home>.Succeed(data);
+                return Result<HomeLink>.Succeed(data);
             }
             catch (ApplicationException ex)
             {
-                return Result<Home>.Failure(ex.Message);
+                return Result<HomeLink>.Failure(ex.Message);
             }
             catch (Exception e)
             {
-                return Result<Home>.Failure(e);
+                return Result<HomeLink>.Failure(e);
             }
         }
+
+        
     }
 }

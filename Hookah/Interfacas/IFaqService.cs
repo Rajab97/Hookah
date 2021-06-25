@@ -1,5 +1,4 @@
 ﻿using Hookah.Abstracts;
-using Hookah.Areas.Administration.Models;
 using Hookah.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Hookah.Interfacas
 {
-    public interface IHomeLinkService : IBaseService<HomeLink>
+    public interface IFaqService:IBaseService<Faq>
     {
+        public Task<Result<Faq>> GetDefaultDataAsync();
     }
 }

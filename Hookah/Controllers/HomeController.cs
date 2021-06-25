@@ -1,4 +1,5 @@
 ﻿using Hookah.Areas.Administration.Models;
+using Hookah.Interfacas;
 using Hookah.Models;
 using Hookah.Servicefacades;
 using Hookah.ViewModels;
@@ -15,11 +16,11 @@ namespace Hookah.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly HomeServiceFacade _homeServiceFacade;
-        private readonly HomeLinkServiceFacade _homeLinkServiceFacade;
+        private readonly IHomeServiceFacade _homeServiceFacade;
+        private readonly IHomeLinkServiceFacade _homeLinkServiceFacade;
         
 
-        public HomeController(ILogger<HomeController> logger,HomeServiceFacade homeServiceFacade,HomeLinkServiceFacade homeLinkServiceFacade)
+        public HomeController(ILogger<HomeController> logger,IHomeServiceFacade homeServiceFacade,IHomeLinkServiceFacade homeLinkServiceFacade)
         {
             _logger = logger;
             _homeServiceFacade = homeServiceFacade;
@@ -35,10 +36,10 @@ namespace Hookah.Controllers
             {
                 HomeFullViewModel homeFullViewModel = new HomeFullViewModel();
                 homeFullViewModel.HomeViewModel = homeModel.Data;
-                homeFullViewModel.HomeLinkViewModel =  homeLinkModel.Data
-                return View(model);
+                homeFullViewModel.HomeLinkViewModels = homeLinkModel.Data;
+                return View(homeFullViewModel);
             }
-            return View(new HomeViewModel());
+            return View(new HomeFullViewModel());
         }
 
         public IActionResult Privacy()

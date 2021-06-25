@@ -56,22 +56,23 @@ namespace Hookah.Servicefacades
             }
             
         }
-        public Result<IQueryable<HomeLink>> GetData()
+        public Result<IQueryable<HomeLinkViewModel>> GetData()
         {
             try
             {
                 var data = _service.GetAll();
-                return data;
+                var model = _mapper.Map<IQueryable<HomeLinkViewModel>>(data);
+                return Result<IQueryable<HomeLinkViewModel>>.Succeed(model);
             }
             catch (ApplicationException ex)
             {
                
-                return Result<IQueryable<HomeLink>>.Failure(ex);
+                return Result<IQueryable<HomeLinkViewModel>>.Failure(ex);
             }
             catch (Exception ex)
             {
                
-                return Result<IQueryable<HomeLink>>.Failure(ExceptionMessages.FatalError);
+                return Result<IQueryable<HomeLinkViewModel>>.Failure(ExceptionMessages.FatalError);
             }
         }
         public async Task<Result> RemoveAsync(Guid id)
@@ -180,5 +181,7 @@ namespace Hookah.Servicefacades
                 return Result.Failure(ExceptionMessages.FatalError);
             }
         }
+
+       
     }
 }
