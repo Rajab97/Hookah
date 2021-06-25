@@ -123,6 +123,9 @@
   <data name="AddCatheringEvent" xml:space="preserve">
     <value>Add new cathering event</value>
   </data>
+  <data name="AddFooterGalaryItem" xml:space="preserve">
+    <value>Add new gallery item</value>
+  </data>
   <data name="AddFruitHead" xml:space="preserve">
     <value>Add new fruit head</value>
   </data>
@@ -168,6 +171,9 @@
   <data name="ChangePassword" xml:space="preserve">
     <value>Change password</value>
   </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Company name</value>
+  </data>
   <data name="ConfirmPassowrd" xml:space="preserve">
     <value>Confirm password</value>
   </data>
@@ -182,6 +188,9 @@
   </data>
   <data name="EditCatheringEvent" xml:space="preserve">
     <value>Edit cathering event</value>
+  </data>
+  <data name="EditFooterGalaryItem" xml:space="preserve">
+    <value>Edit current gallery item</value>
   </data>
   <data name="EditFruitHead" xml:space="preserve">
     <value>Edit fruit head</value>
@@ -209,6 +218,9 @@
   </data>
   <data name="ExtraHourPrice" xml:space="preserve">
     <value>Extra price per hour</value>
+  </data>
+  <data name="FacebookLink" xml:space="preserve">
+    <value>Facebook profile link</value>
   </data>
   <data name="FirstName" xml:space="preserve">
     <value>Firstname</value>
@@ -240,8 +252,17 @@
   <data name="ImagePL" xml:space="preserve">
     <value>Previously added IPad size image</value>
   </data>
+  <data name="Info" xml:space="preserve">
+    <value>Image info</value>
+  </data>
   <data name="InitialPrice" xml:space="preserve">
     <value>Initial price</value>
+  </data>
+  <data name="InstagramLink" xml:space="preserve">
+    <value>Instagram profile link</value>
+  </data>
+  <data name="InstagramProfileName" xml:space="preserve">
+    <value>Instagram profile name</value>
   </data>
   <data name="LastName" xml:space="preserve">
     <value>Lastname</value>
@@ -282,11 +303,17 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>Phonenumber</value>
   </data>
+  <data name="PhoneNumberForCall" xml:space="preserve">
+    <value>Phone number for calling</value>
+  </data>
   <data name="PreviousUploadedImage" xml:space="preserve">
     <value>Previously uploaded image</value>
   </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Remember me</value>
+  </data>
+  <data name="RequestCallButton" xml:space="preserve">
+    <value>Request call button text</value>
   </data>
   <data name="SelectPackageTitle" xml:space="preserve">
     <value>Select package title</value>
@@ -312,10 +339,16 @@
   <data name="TopImageTitle" xml:space="preserve">
     <value>Top image title</value>
   </data>
+  <data name="TwitterLink" xml:space="preserve">
+    <value>Twitter profile link</value>
+  </data>
   <data name="UserName" xml:space="preserve">
     <value>Username</value>
   </data>
   <data name="UserPassword" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="YoutubeLink" xml:space="preserve">
+    <value>Youtube profile link</value>
   </data>
 </root>

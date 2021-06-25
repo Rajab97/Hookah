@@ -25,6 +25,8 @@ namespace Hookah.Areas.Administration.Models
             CreateMap<HowItWorksStepViewModel, HowItWorksStep>().ReverseMap();
             CreateMap<ContactViewModel, Contact>().ReverseMap();
 
+            CreateMap<FooterGalaryItemViewModel, FooterGalaryItem>().ReverseMap();
+            CreateMap<SiteConfigurationViewModel, SiteConfiguration>().ReverseMap();
         }
     }
 }
