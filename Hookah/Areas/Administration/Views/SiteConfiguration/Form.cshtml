@@ -47,9 +47,9 @@
                                 </div>
                                 @if (Model.Id != Guid.Empty)
                                 {
-                                    <div class="col-lg-6 mb-3 mb-lg-0">
+                                    <div class="col-lg-6 mb-3 mb-lg-0" >
                                         <label asp-for="CompanyLogoImage"></label>
-                                        <img class="symbol" style="width:100%;height:auto;" src="/@Model.CompanyLogoImage" />
+                                        <img class="symbol" style="width:100%;height:auto;background-color: darkgray;padding:15px;box-sizing:border-box;" src="/@Model.CompanyLogoImage" />
                                     </div>
                                 }
                             </div>

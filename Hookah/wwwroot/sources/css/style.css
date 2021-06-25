@@ -580,18 +580,27 @@ form .call-button {
     color: #fff;
     font-size: 35px;
   }
+    #mainPhoto .background .backgroundContent img {
+        margin-top:10px;
+    }
 }
 
 @media screen and (max-width: 576px) and (min-width: 576px) {
   #mainPhoto .background .backgroundContent h2 {
     font-size: calc(35px + 25 * ((100vw - 576px) / 864));
   }
+    #mainPhoto .background .backgroundContent img {
+        margin-top: 15px;
+    }
 }
 
 @media screen and (max-width: 576px) and (min-width: 1440px) {
   #mainPhoto .background .backgroundContent h2 {
     font-size: 60px;
   }
+    #mainPhoto .background .backgroundContent img {
+        margin-top: 15px;
+    }
 }
 
 @media (min-width: 576px) {
@@ -638,18 +647,27 @@ form .call-button {
     color: #fff;
     font-size: 35px;
   }
+    #mainPhoto .background .backgroundContent img {
+        margin-top: 15px;
+    }
 }
 
 @media screen and (min-width: 576px) and (min-width: 576px) {
   #mainPhoto .background .backgroundContent h2 {
     font-size: calc(35px + 25 * ((100vw - 576px) / 864));
   }
+    #mainPhoto .background .backgroundContent img {
+        margin-top: 15px;
+    }
 }
 
 @media screen and (min-width: 576px) and (min-width: 1440px) {
   #mainPhoto .background .backgroundContent h2 {
     font-size: 60px;
   }
+    #mainPhoto .background .backgroundContent img {
+        margin-top: 15px;
+    }
 }
 
 @media (min-width: 992px) {

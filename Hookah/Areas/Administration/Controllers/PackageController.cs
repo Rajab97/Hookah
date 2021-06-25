@@ -68,6 +68,14 @@ namespace Hookah.Areas.Administration.Controllers
             return AjaxFailureResult(result);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Remove(Guid id)
+        {
+            var result = await _serviceFacade.RemoveAsync(id);
+            if (result.IsSucceed)
+                return Json("Ok");
+            return AjaxFailureResult(result);
+        }
         public IActionResult AddNewPackageItem()
         {
             var model = new PackageItemViewModel();
