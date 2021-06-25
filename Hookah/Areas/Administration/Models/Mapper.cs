@@ -23,6 +23,8 @@ namespace Hookah.Areas.Administration.Models
             CreateMap<CatheringViewModel, Cathering>().ReverseMap();
             CreateMap<CatheringEventViewModel, CatheringEvent>().ReverseMap();
             CreateMap<HowItWorksStepViewModel, HowItWorksStep>().ReverseMap();
+            CreateMap<ContactViewModel, Contact>().ReverseMap();
+
         }
     }
 }

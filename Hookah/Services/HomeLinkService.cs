@@ -1,4 +1,5 @@
 ﻿using Hookah.Abstracts;
+using Hookah.Areas.Administration.Models;
 using Hookah.Data;
 using Hookah.Interfacas;
 using Hookah.Models;
@@ -45,6 +46,27 @@ namespace Hookah.Services
             catch(Exception e)
             {
                 return Result.Failure(e);
+            }
+        }
+
+        public async Task<Result<HomeLink>> GetDefaultModelAsync()
+        {
+            try
+            {
+                var data = await _context.HomeLinks.FirstOrDefaultAsync();
+                if (data == null)
+                {
+                    return Result<HomeLink>.Failure(ExceptionMessages.NotFound);
+                }
+                return Result<Home>.Succeed(data);
+            }
+            catch (ApplicationException ex)
+            {
+                return Result<Home>.Failure(ex.Message);
+            }
+            catch (Exception e)
+            {
+                return Result<Home>.Failure(e);
             }
         }
     }

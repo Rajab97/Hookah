@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -7,16 +8,16 @@
         <div class="background">
             <div class="image">
                 <picture>
-                    <source srcset="sources/img/_36A1636.jpg"
+                    <source srcset="sources/img/@Model.ImageMB"
                             media="(max-width: 768px)" />
-                    <source srcset="sources/img/abdulaziz-sopranos-JddqEU-oBXM-unsplash.jpg"
+                    <source srcset="sources/img/@Model.ImageLP"
                             media="(max-width: 1200px)" />
-                    <img src="sources/img/viktor-forgacs-r3SkTAMGeUg-unsplash.jpg" />
+                    <img src="sources/img/@Model.ImagePL" />
                 </picture>
                 <div class="overlay"></div>
             </div>
             <div class="backgroundContent d-flex flex-column align-items-center justify-content-center">
-                <h2>CONTACT HARRA</h2>
+                <h2>@Model.ImageTitle</h2>
                 <img src="sources/img/Harra_White+HH.png" alt="">
             </div>
         </div>
@@ -25,12 +26,15 @@
         <div class="section-common">
             <div class="experience-top ">
                 <p>
-                    At Harra, we make sure your hookah experience is one to remember. We make it easy and convenient for you and your guests to enjoy hookah anytime, anywhere. <br>
-                    From our full service catering, hookah rentals, and unique hookah fruit heads, we bring the Harra Hookah experience to you.  It is our goal to bring you unique and creative hookahs that will leave a lasting impression.
+                    @Model.ParagraphText
                 </p>
-                <a href="tel:+994553246307" class="call-button">Call Harra now</a>
+                <a href="tel:+994553246307" class="call-button">@Model.CallButtonText</a>
             </div>
             <div class="experience-gallary">
+                @foreach (var item in Model)
+                {
+
+                }
                 <div class="experience-gallary-item">
                     <div class="experience-gallary-item-img">
                         <img src="sources/img/cedaen-aran-VwF0tT5mCTw-unsplash.jpg" alt="">

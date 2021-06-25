@@ -1,4 +1,7 @@
-﻿using Hookah.Models;
+﻿using Hookah.Areas.Administration.Models;
+using Hookah.Models;
+using Hookah.Servicefacades;
+using Hookah.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,15 +15,30 @@ namespace Hookah.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly HomeServiceFacade _homeServiceFacade;
+        private readonly HomeLinkServiceFacade _homeLinkServiceFacade;
+        
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,HomeServiceFacade homeServiceFacade,HomeLinkServiceFacade homeLinkServiceFacade)
         {
             _logger = logger;
+            _homeServiceFacade = homeServiceFacade;
+            _homeLinkServiceFacade = homeLinkServiceFacade;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var homeModel = await _homeServiceFacade.GetDefaultModelAsync();
+            var homeLinkModel =  _homeLinkServiceFacade.GetData();
+
+            if (homeModel.IsSucceed && homeLinkModel.IsSucceed)
+            {
+                HomeFullViewModel homeFullViewModel = new HomeFullViewModel();
+                homeFullViewModel.HomeViewModel = homeModel.Data;
+                homeFullViewModel.HomeLinkViewModel =  homeLinkModel.Data
+                return View(model);
+            }
+            return View(new HomeViewModel());
         }
 
         public IActionResult Privacy()

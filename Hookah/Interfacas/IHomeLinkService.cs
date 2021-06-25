@@ -1,4 +1,5 @@
 ﻿using Hookah.Abstracts;
+using Hookah.Areas.Administration.Models;
 using Hookah.Models;
 using System;
 using System.Collections.Generic;
@@ -9,5 +10,6 @@ namespace Hookah.Interfacas
 {
     public interface IHomeLinkService : IBaseService<HomeLink>
     {
+        public Task<Result<HomeLinkViewModel>> GetDefaultModelAsync();
     }
 }
