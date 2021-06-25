@@ -39,6 +39,7 @@ namespace Hookah.Controllers
 
         protected IActionResult Filter<T>(IQueryable<T> source, GridFilterModel options)
         {
+            var totalCount = source.Count();
             var entityType = typeof(T);
             
             StringBuilder orderExpression = new StringBuilder();
@@ -155,7 +156,7 @@ namespace Hookah.Controllers
             }
             var users = source.Skip(options.Start).Take(options.Length).Select(selectExpressionResult);
 
-            var jsonData = new { recordsFiltered = users.Count(), recordsTotal = users.Count(), data = users };
+            var jsonData = new { recordsFiltered = totalCount, recordsTotal = totalCount, data = users };
             return Json(jsonData);
         }
     }

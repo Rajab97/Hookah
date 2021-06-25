@@ -79,6 +79,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new gallery item.
+        /// </summary>
+        public static string AddFooterGalaryItem {
+            get {
+                return ResourceManager.GetString("AddFooterGalaryItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new fruit head.
         /// </summary>
         public static string AddFruitHead {
@@ -214,6 +223,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Company name.
+        /// </summary>
+        public static string CompanyName {
+            get {
+                return ResourceManager.GetString("CompanyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm password.
         /// </summary>
         public static string ConfirmPassowrd {
@@ -255,6 +273,15 @@ namespace Hookah.Resources {
         public static string EditCatheringEvent {
             get {
                 return ResourceManager.GetString("EditCatheringEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit current gallery item.
+        /// </summary>
+        public static string EditFooterGalaryItem {
+            get {
+                return ResourceManager.GetString("EditFooterGalaryItem", resourceCulture);
             }
         }
         
@@ -336,6 +363,15 @@ namespace Hookah.Resources {
         public static string ExtraHourPrice {
             get {
                 return ResourceManager.GetString("ExtraHourPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facebook profile link.
+        /// </summary>
+        public static string FacebookLink {
+            get {
+                return ResourceManager.GetString("FacebookLink", resourceCulture);
             }
         }
         
@@ -430,11 +466,38 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image info.
+        /// </summary>
+        public static string Info {
+            get {
+                return ResourceManager.GetString("Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Initial price.
         /// </summary>
         public static string InitialPrice {
             get {
                 return ResourceManager.GetString("InitialPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instagram profile link.
+        /// </summary>
+        public static string InstagramLink {
+            get {
+                return ResourceManager.GetString("InstagramLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instagram profile name.
+        /// </summary>
+        public static string InstagramProfileName {
+            get {
+                return ResourceManager.GetString("InstagramProfileName", resourceCulture);
             }
         }
         
@@ -556,6 +619,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Phone number for calling.
+        /// </summary>
+        public static string PhoneNumberForCall {
+            get {
+                return ResourceManager.GetString("PhoneNumberForCall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Previously uploaded image.
         /// </summary>
         public static string PreviousUploadedImage {
@@ -570,6 +642,15 @@ namespace Hookah.Resources {
         public static string RememberMe {
             get {
                 return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request call button text.
+        /// </summary>
+        public static string RequestCallButton {
+            get {
+                return ResourceManager.GetString("RequestCallButton", resourceCulture);
             }
         }
         
@@ -646,6 +727,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Twitter profile link.
+        /// </summary>
+        public static string TwitterLink {
+            get {
+                return ResourceManager.GetString("TwitterLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string UserName {
@@ -660,6 +750,15 @@ namespace Hookah.Resources {
         public static string UserPassword {
             get {
                 return ResourceManager.GetString("UserPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Youtube profile link.
+        /// </summary>
+        public static string YoutubeLink {
+            get {
+                return ResourceManager.GetString("YoutubeLink", resourceCulture);
             }
         }
     }
