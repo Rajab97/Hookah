@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Hookah.Controllers
 {
-    public class CatheringController : Controller
+    public class CateringController : Controller
     {
         private readonly ICatheringServiceFacade _catheringServiceFacade;
         private readonly IPackageServiceFacade _packageServiceFacade;
@@ -19,7 +19,7 @@ namespace Hookah.Controllers
         private readonly ICatheringEventServiceFacade _catheringEventServiceFacade;
         private readonly ISiteConfigurationServiceFacade _siteConfigurationServiceFacade;
 
-        public CatheringController(ICatheringServiceFacade catheringServiceFacade,
+        public CateringController(ICatheringServiceFacade catheringServiceFacade,
                                     IPackageServiceFacade packageServiceFacade,
                                         IHowItWorksStepServiceFacade howItWorksStepServiceFacade,
                                             ICatheringEventServiceFacade catheringEventServiceFacade,
