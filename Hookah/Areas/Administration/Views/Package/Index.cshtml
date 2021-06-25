@@ -264,12 +264,11 @@
         });
 
         function remove(id) {
-           @* ajax.sendRequest('@Url.Action(nameof(AccountController.ChangeStatusOfUser),AccountController.Name)', "POST", {
-                userId: id,
-                isBlocked: true
+            ajax.sendRequest('@Url.Action(nameof(PackageController.Remove), PackageController.Name)', "POST", {
+                id:id
             }, function () {
                     dt.ajax.reload();
-            });*@
+            });
         }
         function edit(id) {
             window.location.href = '@Url.Action(nameof(PackageController.Edit),PackageController.Name)?packageId=' + id;

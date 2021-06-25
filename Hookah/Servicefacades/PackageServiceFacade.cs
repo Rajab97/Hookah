@@ -79,7 +79,27 @@ namespace Hookah.Servicefacades
             }
             return Result<IQueryable<PackageItem>>.Failure(dataResult.ExceptionMessage);
         }
-
+        public async Task<Result> RemoveAsync(Guid Id)
+        {
+            try
+            {
+               var result = await _packageService.DeleteAsync(Id);
+                if (result.IsSucceed)
+                {
+                    await _unitOfWork.CommitAsync();
+                }
+                return result;
+            }
+            catch (BaseException exc)
+            {
+                return Result.Failure(exc);
+            }
+            catch (Exception unknownExc)
+            {
+                var fatalExc = new FatalException(unknownExc);
+                return Result.Failure(fatalExc);
+            }
+        }
         public async Task<Result> SaveAsync(PackageViewModel model)
         {
             try

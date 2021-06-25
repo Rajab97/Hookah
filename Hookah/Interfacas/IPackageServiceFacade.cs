@@ -15,5 +15,6 @@ namespace Hookah.Interfacas
         public Result<IQueryable<PackageItem>> GetPackageItems(Guid packageId);
         public Result Edit(PackageItemViewModel packageItemViewModel);
         public Task<Result<PackageViewModel>> GetModelByIdAsync(Guid packageId);
+        public Task<Result> RemoveAsync(Guid Id);
     }
 }
