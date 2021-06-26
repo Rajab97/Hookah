@@ -150,5 +150,6 @@ namespace Hookah.Servicefacades
                 return Result.Failure(ExceptionMessages.FatalError);
             }
         }
+
     }
 }

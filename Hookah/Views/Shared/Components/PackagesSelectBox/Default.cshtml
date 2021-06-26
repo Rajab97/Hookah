@@ -1,0 +1,11 @@
+﻿@using Hookah.Models
+@using Hookah.Resources
+@model IEnumerable<Package>
+
+<select name="PackageId" id="inputState" class="form-control">
+    <option selected>Choose @UI.Package...</option>
+    @foreach (var package in Model)
+    {
+        <option value="@package.Id">@package.Title</option>
+    }
+</select>

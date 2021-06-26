@@ -70,6 +70,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Day field must be between 1 and 31.
+        /// </summary>
+        public static string DayField {
+            get {
+                return ResourceManager.GetString("DayField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email is already available.
         /// </summary>
         public static string DuplicateEmail {
@@ -84,6 +93,24 @@ namespace Hookah.Resources {
         public static string DuplicateName {
             get {
                 return ResourceManager.GetString("DuplicateName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event date details must be filled.
+        /// </summary>
+        public static string EventDateMustBeFilled {
+            get {
+                return ResourceManager.GetString("EventDateMustBeFilled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The date of the event must be greater than today.
+        /// </summary>
+        public static string EventDateMustBeGreaterThanToday {
+            get {
+                return ResourceManager.GetString("EventDateMustBeGreaterThanToday", resourceCulture);
             }
         }
         
@@ -124,11 +151,29 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Month field must be less than 12 or equal to 12.
+        /// </summary>
+        public static string MonthField {
+            get {
+                return ResourceManager.GetString("MonthField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No information found.
         /// </summary>
         public static string NotFound {
             get {
                 return ResourceManager.GetString("NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One of the packages must be selected.
+        /// </summary>
+        public static string PackageMustBeSelected {
+            get {
+                return ResourceManager.GetString("PackageMustBeSelected", resourceCulture);
             }
         }
         
@@ -273,6 +318,15 @@ namespace Hookah.Resources {
         public static string UsersNotCreated {
             get {
                 return ResourceManager.GetString("UsersNotCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year field must be between this year and 2099.
+        /// </summary>
+        public static string YearField {
+            get {
+                return ResourceManager.GetString("YearField", resourceCulture);
             }
         }
     }

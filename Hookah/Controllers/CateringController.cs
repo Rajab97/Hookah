@@ -11,25 +11,28 @@ using System.Threading.Tasks;
 
 namespace Hookah.Controllers
 {
-    public class CateringController : Controller
+    public class CateringController : BaseController
     {
         private readonly ICatheringServiceFacade _catheringServiceFacade;
         private readonly IPackageServiceFacade _packageServiceFacade;
         private readonly IHowItWorksStepServiceFacade _howItWorksStepServiceFacade;
         private readonly ICatheringEventServiceFacade _catheringEventServiceFacade;
         private readonly ISiteConfigurationServiceFacade _siteConfigurationServiceFacade;
+        private readonly IOrderServiceFacade _orderServiceFacade;
 
         public CateringController(ICatheringServiceFacade catheringServiceFacade,
                                     IPackageServiceFacade packageServiceFacade,
                                         IHowItWorksStepServiceFacade howItWorksStepServiceFacade,
                                             ICatheringEventServiceFacade catheringEventServiceFacade,
-                                                ISiteConfigurationServiceFacade siteConfigurationServiceFacade)
+                                                ISiteConfigurationServiceFacade siteConfigurationServiceFacade,
+                                                    IOrderServiceFacade orderServiceFacade)
         {
             this._catheringServiceFacade = catheringServiceFacade;
             this._packageServiceFacade = packageServiceFacade;
             this._howItWorksStepServiceFacade = howItWorksStepServiceFacade;
             this._catheringEventServiceFacade = catheringEventServiceFacade;
             this._siteConfigurationServiceFacade = siteConfigurationServiceFacade;
+            this._orderServiceFacade = orderServiceFacade;
         }
         public async Task<IActionResult> Index()
         {
@@ -78,6 +81,14 @@ namespace Hookah.Controllers
                 SiteConfigurationView = siteConfiguration
             };
             return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> SendOrder(OrderViewModel model)
+        {
+            var result = await _orderServiceFacade.SendOrderAsync(model);
+            if (result.IsSucceed)
+                return Json("Ok");
+            return AjaxFailureResult(result);
         }
     }
 }

@@ -1,0 +1,57 @@
+﻿@model FooterFullViewModel
+@using Hookah.Controllers
+<footer>
+    <section class="foooter-gallary">
+        @if (!String.IsNullOrEmpty(Model.SiteConfiguration.InstagramLink))
+        {
+            <h1 class="footer-gallary-header">Follow <a href="">@Model.SiteConfiguration.InstagramLink</a></h1>
+        }
+    <div class="gallery section-common-nopadding row">
+        @foreach (var item in Model.FooterGalaryItems)
+        {
+            <div class=" col-6 col-md-3 pr-2 pl-2">
+                <a href="@item.ImagePath" class="big"><img src="@item.ImagePath" alt="" title="@item.Text" /></a>
+            </div>
+        }
+        <div class="clear"></div>
+    </div>
+        <div class="footer-social-links">
+            <ul class="d-flex align-items-center justify-content-center">
+                @if (!String.IsNullOrEmpty(Model.SiteConfiguration.InstagramLink))
+                {
+                    <li><a href="@Model.SiteConfiguration.InstagramLink"><i class="fab fa-instagram"></i></a></li>
+
+                }
+                @if (!String.IsNullOrEmpty(Model.SiteConfiguration.FacebookLink))
+                {
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                }
+                @if (!String.IsNullOrEmpty(Model.SiteConfiguration.TwitterLink))
+                {
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                }
+                @if (!String.IsNullOrEmpty(Model.SiteConfiguration.YoutubeLink))
+                {
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                }
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <div class="call-buttons d-flex align-items-center justify-content-center">
+                <a href="tel:@Model.SiteConfiguration.PhoneNumberForCall" class="call-button">@Model.SiteConfiguration.CallButtonText</a>
+                <a href="@Url.Action(nameof(ContactController.Index),"Contact")" class="call-button-white">@Model.SiteConfiguration.RequestCallButton</a>
+            </div>
+            <div class="footer-contact-nav">
+                <ul class="d-flex justify-content-center align-items-center">
+                    <li><a href="@Url.Action(nameof(MenuController.Index),"Menu")">Menu</a></li>
+                    <li><span>/</span></li>
+                    <li><a href="@Url.Action(nameof(CateringController.Index),"Catering")">Cathering</a></li>
+                    <li><span>/</span></li>
+                    <li><a href="@Url.Action(nameof(ContactController.Index),"Contact")">Contact</a></li>
+                    <li><span>/</span></li>
+                    <li><a href="@Url.Action(nameof(FaqController.Index),"Menu")">Faq</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</footer>

@@ -12,5 +12,6 @@ namespace Hookah.Models
         public decimal ExtraHourPrice { get; set; }
         public decimal InitialPrice { get; set; }
         public ICollection<PackageItem> Items { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

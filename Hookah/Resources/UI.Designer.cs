@@ -115,6 +115,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Addtions and Preferences.
+        /// </summary>
+        public static string Additions {
+            get {
+                return ResourceManager.GetString("Additions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new menu flavor.
         /// </summary>
         public static string AddMenuFlavor {
@@ -138,6 +147,15 @@ namespace Hookah.Resources {
         public static string AddPackage {
             get {
                 return ResourceManager.GetString("AddPackage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
             }
         }
         
@@ -349,6 +367,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Event date.
+        /// </summary>
+        public static string EventDate {
+            get {
+                return ResourceManager.GetString("EventDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Event name.
         /// </summary>
         public static string EventName {
@@ -426,6 +453,15 @@ namespace Hookah.Resources {
         public static string FruitHeadTitle {
             get {
                 return ResourceManager.GetString("FruitHeadTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How many hourse of service.
+        /// </summary>
+        public static string HourseOfService {
+            get {
+                return ResourceManager.GetString("HourseOfService", resourceCulture);
             }
         }
         
@@ -556,11 +592,38 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order sended succesfully.
+        /// </summary>
+        public static string OrderSendedSuccessfully {
+            get {
+                return ResourceManager.GetString("OrderSendedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your order has been accepted and you will be contacted soon.
+        /// </summary>
+        public static string OrderSendedSuccessfullyText {
+            get {
+                return ResourceManager.GetString("OrderSendedSuccessfullyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Order title.
         /// </summary>
         public static string OrderTitle {
             get {
                 return ResourceManager.GetString("OrderTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Package.
+        /// </summary>
+        public static string Package {
+            get {
+                return ResourceManager.GetString("Package", resourceCulture);
             }
         }
         
@@ -750,6 +813,15 @@ namespace Hookah.Resources {
         public static string UserPassword {
             get {
                 return ResourceManager.GetString("UserPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Okey.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         

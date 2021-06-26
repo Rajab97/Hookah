@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Hookah.Controllers
+@using Hookah.ViewComponents
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +15,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="sources/plugins/simplelightbox-master/simple-lightbox.min.css">
     <link rel="stylesheet" href="sources/fonts/fontawesome/all.min.css">
+    <link rel="stylesheet" href="~/sources/plugins/sweetealert/sweetealert.css"/>
+    <link rel="stylesheet" href="~/css/lib/three-dots.min.css" />
     <link rel="stylesheet" href="sources/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/site.css"/>
+    @await RenderSectionAsync("Styles", false)
 </head>
 <body>
     <header>
@@ -55,67 +61,52 @@
         <h1 class="header-nav-title">Baku</h1>
     </header>
     @RenderBody()
-    <footer>
-        <section class="foooter-gallary">
-            <h1 class="footer-gallary-header">Follow <a href="">Harrahookah</a></h1>
-            <div class="gallery section-common-nopadding row">
-                <div class=" col-6 col-md-3 pr-2 pl-2">
-                    <a href="sources/img/gallery1.jpeg" class="big"><img src="sources/img/gallery1.jpeg" alt="" title="Beautiful Image" /></a>
-                </div>
-                <div class=" col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
-                    <a href="sources/img/gallery2.jpeg"><img src="sources/img/gallery2.jpeg" alt="" title="" /></a>
-                </div>
-                <div class="col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
-                    <a href="sources/img/gallery6.jpeg"><img src="sources/img/gallery6.jpeg" alt="" title="" /></a>
-                </div>
-                <div class="col-6  col-md-3 pr-2 pl-2 mb-2 mt-2">
-                    <a href="sources/img/gallery3.jpeg"><img src="sources/img/gallery3.jpeg" alt="" title="Beautiful Image" /></a>
-                </div>
-                <div class="col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
-                    <a href="sources/img/gallery4.jpeg"><img src="sources/img/gallery4.jpeg" alt="" title="" /></a>
-                </div>
-                <div class="col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
-                    <a href="sources/img/gallery5.jpeg"><img src="sources/img/gallery5.jpeg" alt="" title="" /></a>
-                </div>
-                <div class="col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
-                    <a href="sources/img/gallery7.jpeg"><img src="sources/img/gallery7.jpeg" alt="" title="" /></a>
-                </div>
-                <div class="col-6 col-md-3 pr-2 pl-2 mb-2 mt-2">
-                    <a href="sources/img/gallery8.jpeg"><img src="sources/img/gallery8.jpeg" alt="" title="" /></a>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="footer-social-links">
-                <ul class="d-flex align-items-center justify-content-center">
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <div class="call-buttons d-flex align-items-center justify-content-center">
-                    <a href="#" class="call-button">Call harra now</a>
-                    <a href="#" class="call-button-white">Request a call</a>
-                </div>
-                <div class="footer-contact-nav">
-                    <ul class="d-flex justify-content-center align-items-center">
-                        <li><a href="#">Menu</a></li>
-                        <li><span>/</span></li>
-                        <li><a href="#">Cathering</a></li>
-                        <li><span>/</span></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><span>/</span></li>
-                        <li><a href="#">Faq</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </footer>
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    @await Component.InvokeAsync(nameof(Footer))
+    <div class="error-alerts">
+
+    </div>
+    @* <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    *@
+    <script src="~/js/vendor.js" asp-append-version="true"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="sources/plugins/simplelightbox-master/simple-lightbox.jquery.min.js"></script>
-    <script src="sources/js/scripts.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    
+    <script src="~/sources/plugins/simplelightbox-master/simple-lightbox.jquery.min.js"></script>
+    <script src="~/js/helper.js"></script>
+    <script src="~/sources/js/scripts.js"></script>
+
+    <script>
+        $(document).ajaxError(function (a, error) {
+            //util.loader(false);
+            $(".alert-custom.hide").remove();
+            if (typeof error.responseJSON === 'undefined') {
+                @*  if (error.status == 403) {
+                    window.location.href = "@Url.Action(nameof(HomeController.NotAuthorize),HomeController.Name,new { Area="" })";
+                }*@
+                }
+            else {
+                var messages = error.responseJSON;
+                console.error(messages);
+                for (var i = 0; i < messages.length; i++) {
+                    var randormId = util.guidGenerate();
+                    console.log(randormId);
+                    $(".error-alerts").append(`<div id="${randormId}" class="alert alert-custom alert-notice alert-light-danger fade mb-2" data-delay="4000" role="alert"><div class= "alert-icon"><i class="flaticon-warning"></i></div><div class="alert-text">${messages[i]}</div><div class="alert-close"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fas fa-times"></i></span></button></div></div>`);
+                    $(`#${randormId}`).toast("show");
+                }
+
+
+                @* if ($(".error-div").length > 0)
+                    $(".error-div").html("<br /><div class=\"alert alert-danger\">" + messages[0] + "</div>");
+
+                $.each(messages, function (key, value) {
+                    toastr.error(value);
+                });*@
+                }
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", false)
 </body>
 </html>

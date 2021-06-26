@@ -40,6 +40,9 @@ namespace Hookah
             services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlServer(connectionString);
             });
+            services.AddDbContext<GeneralDbContext>(options => {
+                options.UseSqlServer(connectionString);
+            });
             services.AddIdentity<User, IdentityRole<Guid>>(options => {
                 //options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequiredLength = 8;
@@ -146,7 +149,7 @@ namespace Hookah
             services.AddScoped<ISiteConfigurationService, SiteConfigurationService>();
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped<IFaqService, FaqService>();
-
+            services.AddScoped<IOrderService, OrderService>();
 
         }
         private void RegisterServiceFacades(IServiceCollection services)
@@ -164,9 +167,7 @@ namespace Hookah
             services.AddScoped<ISiteConfigurationServiceFacade, SiteConfigurationServiceFacade>();
             services.AddScoped<IContactServiceFacade, ContactServiceFacade>();
             services.AddScoped<IFaqServiceFacade, FaqServiceFacade>();
-
-
-
+            services.AddScoped<IOrderServiceFacade, OrderServiceFacade>();
         }
     }
 }

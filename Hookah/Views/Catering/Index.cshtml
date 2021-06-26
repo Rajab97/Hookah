@@ -1,8 +1,17 @@
 ﻿@model CatheringFullViewModel
+
+@using Hookah.Resources
 @{
     ViewData["Title"] = "Index";
 }
-
+@section Styles{
+    <style>
+        #sendBtn.active {
+            background-color: #fff;
+            color: #100806;
+        }
+    </style>
+}
 <main id="home">
     <section id="mainPhoto">
         <div class="background">
@@ -75,7 +84,7 @@
         </div>
         <div class="cathering-content-precess-flow">
             <ul>
-                @foreach (var step in Model.HowItWorksSteps.OrderBy(m=>m.OrderNumber))
+                @foreach (var step in Model.HowItWorksSteps.OrderBy(m => m.OrderNumber))
                 {
                     <li class="d-flex align-items-center justify-content-between">
                         <p>
@@ -92,55 +101,61 @@
             <h1>@Html.Raw(Model.CatheringView.OrderTitle)</h1>
             <div class="bottom-line"></div>
         </div>
-        <div class="order-form">
-            <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="1">Small Party</option>
-                            <option value="2">Medium Event</option>
-                            <option value="3">Big Bash</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="name" placeholder="Name*" autocomplete="off">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <input type="tel" class="form-control" id="tel" placeholder="Phone*" autocomplete="off">
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <input type="email" class="form-control" id="email" placeholder="Email*" autocomplete="off">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6 d-flex align-items-center justify-content-start">
-                        <input type="number" maxlength="2" class="form-control" id="month" placeholder="MM" autocomplete="off">
-                        <input type="number" maxlength="2" class="form-control" id="day" placeholder="DD" autocomplete="off">
-                        <input type="number" maxlength="4" class="form-control" id="year" placeholder="YYYY" autocomplete="off">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input type="time" class="form-control" id="startTime" placeholder="Start time*" autocomplete="off">
-                    </div>
-
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <input type="number" class="form-control" id="hours" placeholder="How many hourse of service*" autocomplete="off">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="address" placeholder="Address*" autocomplete="off">
-                    </div>
-                    <div class="form-group col-12">
-                        <textarea class="form-control" id="additions" name="additions" placeholder="Additions and Preferences" rows="3"></textarea>
-                    </div>
-                </div>
-                <button type="submit" class="call-button">Send</button>
-            </form>
-        </div>
+        <partial name="_orderPartial" model="new OrderViewModel()">
     </section>
 </main>
 
+@section Scripts{
+    <script src="~/sources/plugins/jquery-mask/jquery.mask.min.js"></script>
+    <script src="~/sources/plugins/sweetealert/sweetalert.min.js"></script>
+    <script>
+        (function ($) {
+            $(function () {
+                $('#tel').mask('(000) 000-0000');
+                $('#day').mask('00');
+                $('#year').mask('0000');
+                $('#month').mask('00');
+            });
+        })(jQuery);
+        var isSubmitted = false;
+        function onBegin() {
+            if (isSubmitted) {
+                return;
+            }
+            isSubmitted = true;
+            $("#sendBtn").prop('disabled', true);
+            $("#sendBtn").addClass("active");
+            util.loading(true, "#sendBtn");
+            console.log("begin");
+
+        }
+        function onSuccess(data) {
+            isSubmitted = false;
+            $("#sendBtn").prop('disabled', false);
+            util.loading(false, "#sendBtn");
+            $("#sendBtn").removeClass("active");
+
+            Swal.fire({
+                title: "@UI.OrderSendedSuccessfully",
+                text: "@Html.Raw(UI.OrderSendedSuccessfullyText)",
+                icon:"success",
+                showCancelButton: false,
+                confirmButtonText: "@UI.Yes"
+            }).then(function (result) {
+                if (result.value) {
+                    window.location.reload();
+                } else if (result.dismiss === "cancel") {
+
+                }
+            });
+
+        }
+        function onFailure() {
+            console.log("fail");
+            isSubmitted = false;
+            $("#sendBtn").prop('disabled', false);
+            util.loading(false, "#sendBtn");
+            $("#sendBtn").removeClass("active");
+        }
+    </script>
+}

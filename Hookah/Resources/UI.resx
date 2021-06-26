@@ -135,6 +135,9 @@
   <data name="AddHowItWorksStep" xml:space="preserve">
     <value>Add new step</value>
   </data>
+  <data name="Additions" xml:space="preserve">
+    <value>Addtions and Preferences</value>
+  </data>
   <data name="AddMenuFlavor" xml:space="preserve">
     <value>Add new menu flavor</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="AddPackage" xml:space="preserve">
     <value>Add new package</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
   </data>
   <data name="Admin" xml:space="preserve">
     <value>Admin</value>
@@ -213,6 +219,9 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="EventDate" xml:space="preserve">
+    <value>Event date</value>
+  </data>
   <data name="EventName" xml:space="preserve">
     <value>Event name</value>
   </data>
@@ -239,6 +248,9 @@
   </data>
   <data name="FruitHeadTitle" xml:space="preserve">
     <value>Fruit heads section title</value>
+  </data>
+  <data name="HourseOfService" xml:space="preserve">
+    <value>How many hourse of service</value>
   </data>
   <data name="HowItWorksTitle" xml:space="preserve">
     <value>How it works title</value>
@@ -282,8 +294,17 @@
   <data name="OrderNumber" xml:space="preserve">
     <value>Step order number</value>
   </data>
+  <data name="OrderSendedSuccessfully" xml:space="preserve">
+    <value>Order sended succesfully</value>
+  </data>
+  <data name="OrderSendedSuccessfullyText" xml:space="preserve">
+    <value>Your order has been accepted and you will be contacted soon</value>
+  </data>
   <data name="OrderTitle" xml:space="preserve">
     <value>Order title</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Package</value>
   </data>
   <data name="PackageItem" xml:space="preserve">
     <value>Text</value>
@@ -347,6 +368,9 @@
   </data>
   <data name="UserPassword" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Okey</value>
   </data>
   <data name="YoutubeLink" xml:space="preserve">
     <value>Youtube profile link</value>

@@ -120,11 +120,20 @@
   <data name="ConcurencyEdit" xml:space="preserve">
     <value>This information has been updated by another user. You must restart the process to protect the integrity of your data.</value>
   </data>
+  <data name="DayField" xml:space="preserve">
+    <value>Day field must be between 1 and 31</value>
+  </data>
   <data name="DuplicateEmail" xml:space="preserve">
     <value>Email is already available</value>
   </data>
   <data name="DuplicateName" xml:space="preserve">
     <value>The username is already in use</value>
+  </data>
+  <data name="EventDateMustBeFilled" xml:space="preserve">
+    <value>Event date details must be filled</value>
+  </data>
+  <data name="EventDateMustBeGreaterThanToday" xml:space="preserve">
+    <value>The date of the event must be greater than today</value>
   </data>
   <data name="FatalError" xml:space="preserve">
     <value>An error occurred during the operation</value>
@@ -138,8 +147,14 @@
   <data name="InvalidUserName" xml:space="preserve">
     <value>Username can only consist of letters and numbers</value>
   </data>
+  <data name="MonthField" xml:space="preserve">
+    <value>Month field must be less than 12 or equal to 12</value>
+  </data>
   <data name="NotFound" xml:space="preserve">
     <value>No information found</value>
+  </data>
+  <data name="PackageMustBeSelected" xml:space="preserve">
+    <value>One of the packages must be selected</value>
   </data>
   <data name="PasswordAndConfirmPasswordNotSame" xml:space="preserve">
     <value>Passowrd is not same with confirm password</value>
@@ -188,5 +203,8 @@
   </data>
   <data name="UsersNotCreated" xml:space="preserve">
     <value>Exception happened on creating users</value>
+  </data>
+  <data name="YearField" xml:space="preserve">
+    <value>Year field must be between this year and 2099</value>
   </data>
 </root>

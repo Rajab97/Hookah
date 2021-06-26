@@ -1,0 +1,232 @@
+﻿
+@using Hookah.Areas.Administration.Controllers
+@using Hookah.Resources
+@using Hookah.Areas.Administration.Models
+@using Hookah.Constants
+@using Hookah.Areas.Administration.ViewComponents
+@section Styles{
+    <link href="~/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Profile Change Password-->
+        <div class="d-flex flex-column align-items-lg-start flex-lg-row">
+            <!--begin::Aside-->
+            <div class="flex-row-fluid ml-lg-8">
+                <!--begin::Card-->
+                <div class="card card-custom">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3 class="card-label">Orders</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!--begin: Datatable-->
+                        <table class="table table-bordered table-hover table-checkable" id="kt_datatable" style="margin-top: 13px !important">
+                            <thead>
+                                <tr>
+                                    <th>Firstname</th>
+                                    <th>Package</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Hourse Of Service</th>
+                                    <th>Address</th>
+                                    <th>EventDate</th>
+                                    <th>AddedDate</th>
+                                    <th>Status</th>
+                                    <th>Additions</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <!--end: Datatable-->
+                    </div>
+                </div>
+            </div>
+            <!--end::Content-->
+        </div>
+        <!--end::Profile Change Password-->
+    </div>
+    <!--end::Container-->
+</div>
+
+
+@section Scripts{
+    <script src="~/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Page Vendors-->
+    <!--begin::Page Scripts(used by this page)-->
+    <script>
+        var selectedData = null;
+        var dt;
+        var KTDatatablesDataSourceAjaxServer = function () {
+
+            var initTable1 = function () {
+                var table = $('#kt_datatable');
+
+                // begin first table
+                 dt = table.DataTable({
+                    responsive: true,
+                    searchDelay: 1000,
+                    processing: true,
+                    serverSide: true,
+                    colReorder: true,
+                    keys: false,
+
+                    //It is for grouping
+                    order: [[1, 'asc']],
+                    @*rowGroup: {
+                        dataSrc: 2,
+                    },*@
+
+                    select: {
+                        style: 'single', //multi
+                        //selector: 'td:first-child .checkable',
+                    },
+
+                    pageLength: 10,
+                    lengthMenu: [[5, 10, 15 , 25 ,50], [ 5, 10, 15 , 25 ,50]],
+                    ajax: {
+                        url: '@Url.Action(nameof(OrderController.GetData), OrderController.Name)',
+                        type: 'POST',
+                        datatype:"json",
+                        data: {
+                            // parameters for custom backend script demo
+                          @*  columnsDef: [
+                                'UserName', 'FirstName',
+                                'LastName', 'Email', 'PhoneNumber',"IsBlocked","Id"],*@
+                        },
+                    },
+                    columns: [
+                        { data: '@nameof(Hookah.Models.OrderGridViewModel.FirstName)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.OrderGridViewModel.Title)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.OrderGridViewModel.Email)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.OrderGridViewModel.PhoneNumber)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.OrderGridViewModel.HourseOfService)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.OrderGridViewModel.Address)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.OrderGridViewModel.EventDate)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.OrderGridViewModel.AddedDate)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.OrderGridViewModel.IsContacted)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.OrderGridViewModel.Additions)', autowidth: true },
+                        { data: '@nameof(Hookah.Models.Order.Id)', autowidth: true, searchable: false, responsivePriority: -1 }
+                    ],
+                    columnDefs: [
+                       @* {
+                            "targets": [0],
+                            "visible": false,
+                            "searchable": false
+                        },*@
+                        {
+                            targets: 8,
+                            width: '75px',
+                            render: function (data, type, full, meta) {
+                                console.log(data);
+                                var status = {
+                                    'Active': { 'title': 'Active', 'class': ' label-light-primary' },
+                                    'Contacted': { 'title': 'Contacted', 'class': ' label-light-success' },
+                                };
+                                console.log(status[data]);
+                                if (typeof status[data] === undefined) {
+                                    return data;
+                                }
+                                return '<span class="label label-lg font-weight-bold' + status[data].class + ' label-inline">' + status[data].title + '</span>';
+                            },
+                        },
+                        {
+                            targets: 10,
+                            title: 'Actions',
+                            orderable: false,
+                            width: "50px",
+                            render: function (data, type, full, meta) {
+                                return '\
+                                        <div class="dropdown dropdown-inline">\
+								            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" data-toggle="dropdown">\
+	                                            <i class="la la-cog"></i>\
+	                                        </a>\
+							  	            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
+									            <ul class="nav nav-hoverable flex-column">\
+							    		            <li class="nav-item"><a class="nav-link" href="javascript:;" onclick=remove("' + full.Id + '")><i class="nav-icon la la-trash"></i><span class="nav-text">Delete</span></a></li>\
+							    		            <li class="nav-item"><a class="nav-link" href="javascript:;" onclick=contacted("'+ full.Id +'")><i class="nav-icon la la-lock-open"></i><span class="nav-text">Contacted</span></a></li>\
+									            </ul>\
+							  	            </div>\
+							            </div>\
+                                        ';
+                            },
+                        }
+                        @*,
+                        {
+                            width: '75px',
+                            targets: -3,
+                            render: function (data, type, full, meta) {
+                                var status = {
+                                    1: { 'title': 'Pending', 'class': 'label-light-primary' },
+                                    2: { 'title': 'Delivered', 'class': ' label-light-danger' },
+                                    3: { 'title': 'Canceled', 'class': ' label-light-primary' },
+                                    4: { 'title': 'Success', 'class': ' label-light-success' },
+                                    5: { 'title': 'Info', 'class': ' label-light-info' },
+                                    6: { 'title': 'Danger', 'class': ' label-light-danger' },
+                                    7: { 'title': 'Warning', 'class': ' label-light-warning' },
+                                };
+                                if (typeof status[data] === 'undefined') {
+                                    return data;
+                                }
+                                return '<span class="label label-lg font-weight-bold' + status[data].class + ' label-inline">' + status[data].title + '</span>';
+                            },
+                        },
+                        {
+                            width: '75px',
+                            targets: -2,
+                            render: function (data, type, full, meta) {
+                                var status = {
+                                    1: { 'title': 'Online', 'state': 'danger' },
+                                    2: { 'title': 'Retail', 'state': 'primary' },
+                                    3: { 'title': 'Direct', 'state': 'success' },
+                                };
+                                if (typeof status[data] === 'undefined') {
+                            AreaConstantsrAdmineaConstants       return data;
+                                }
+                                return '<span class="label label-' + status[data].state + ' label-dot mr-2"></span>' +
+                                    '<span class="font-weightAccoNameuntControllerbold text-' + status[data].state + '">' + status[data].title + '</span>';
+                            },
+                        },*@
+                    ],
+                });
+
+                table.on('select.dt', function () {
+                    selectedData = dt.row({ selected: true }).data();
+                });
+            };
+
+            return {
+
+                //main function to initiate the modulenameof
+                init: function () {
+                    initTable1();
+                },
+
+            };
+
+        }();
+
+        jQuery(document).ready(function () {
+            KTDatatablesDataSourceAjaxServer.init();
+        });
+
+
+        function remove(id) {
+              ajax.sendRequest('@Url.Action(nameof(OrderController.Remove),OrderController.Name)', "POST", {
+                Id: id
+            }, function () {
+                    dt.ajax.reload();
+            });
+        }
+        function contacted(id) {
+             ajax.sendRequest('@Url.Action(nameof(OrderController.Contact),OrderController.Name)', "POST", {
+                Id: id
+            }, function () {
+                    dt.ajax.reload();
+            });
+        }
+    </script>
+}
