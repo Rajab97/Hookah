@@ -123,6 +123,9 @@
   <data name="AddCatheringEvent" xml:space="preserve">
     <value>Add new cathering event</value>
   </data>
+  <data name="AddFaqQuestion" xml:space="preserve">
+    <value>Add new FAQ question</value>
+  </data>
   <data name="AddFooterGalaryItem" xml:space="preserve">
     <value>Add new gallery item</value>
   </data>
@@ -155,6 +158,9 @@
   </data>
   <data name="AllUsers" xml:space="preserve">
     <value>All users</value>
+  </data>
+  <data name="Answer" xml:space="preserve">
+    <value>Answer</value>
   </data>
   <data name="BaseTitle" xml:space="preserve">
     <value>Base title</value>
@@ -194,6 +200,9 @@
   </data>
   <data name="EditCatheringEvent" xml:space="preserve">
     <value>Edit cathering event</value>
+  </data>
+  <data name="EditFaqQuestion" xml:space="preserve">
+    <value>Edit current FAQ question</value>
   </data>
   <data name="EditFooterGalaryItem" xml:space="preserve">
     <value>Edit current gallery item</value>
@@ -282,6 +291,9 @@
   <data name="Link" xml:space="preserve">
     <value>URL</value>
   </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
   <data name="MyProfile" xml:space="preserve">
     <value>My profile</value>
   </data>
@@ -330,11 +342,20 @@
   <data name="PreviousUploadedImage" xml:space="preserve">
     <value>Previously uploaded image</value>
   </data>
+  <data name="Question" xml:space="preserve">
+    <value>Question</value>
+  </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Remember me</value>
   </data>
   <data name="RequestCallButton" xml:space="preserve">
     <value>Request call button text</value>
+  </data>
+  <data name="RequestSendedSuccessfully" xml:space="preserve">
+    <value>Request sended succesfully</value>
+  </data>
+  <data name="RequestSendedSuccessfullyText" xml:space="preserve">
+    <value>Your request has been accepted and you will be contacted soon</value>
   </data>
   <data name="SelectPackageTitle" xml:space="preserve">
     <value>Select package title</value>

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shsisa</title>
+    <title>@ViewData["Title"]</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Rubik+Mono+One&display=swap" rel="stylesheet">
@@ -22,44 +22,7 @@
     @await RenderSectionAsync("Styles", false)
 </head>
 <body>
-    <header>
-        <nav class="desktop-top">
-            <ul class="d-flex align-items-center justify-content-between">
-                <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
-                <li><a asp-controller="Cataring" asp-action="Index">Catering</a></li>
-                <li><a class="nav-title" asp-controller="Home" asp-action="Index">Baku</a></li>
-                <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
-                <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
-            </ul>
-        </nav>
-        <nav class="mobile-top">
-            <div class="hamburger-menu-button d-flex align-items-center justify-content-center">
-                <div class="hamburger-menu-button-item top">
-                </div>
-            </div>
-            <div class="mobile-nav-content">
-                <div class="inner d-flex align-items-center">
-                    <ul>
-                        <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
-                        <li><a asp-controller="Cataring" asp-action="Index">Catering</a></li>
-                        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
-                        <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <nav class="desktop-scroll-top">
-            <div class="content">
-                <ul class="d-flex align-items-center justify-content-between">
-                    <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
-                    <li><a asp-controller="Cataring" asp-action="Index">Catering</a></li>
-                    <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
-                    <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
-                </ul>
-            </div>
-        </nav>
-        <h1 class="header-nav-title">Baku</h1>
-    </header>
+    @await Component.InvokeAsync(nameof(HeaderFront))
     @RenderBody()
     @await Component.InvokeAsync(nameof(Footer))
     <div class="error-alerts">
@@ -73,7 +36,7 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
-    
+
     <script src="~/sources/plugins/simplelightbox-master/simple-lightbox.jquery.min.js"></script>
     <script src="~/js/helper.js"></script>
     <script src="~/sources/js/scripts.js"></script>

@@ -13,22 +13,27 @@ namespace Hookah.Areas.Administration.Models
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.TopImageTitle))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(100)]
         public string ImageTitle { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.FlavorsTitle))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(100)]
         public string FlavorsTitle { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.FlavorsText))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(1000)]
         public string FlavorsText { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.FruitHeadTitle))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(100)]
         public string FruitHeadTitle { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.FruitHeadText))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(1000)]
         public string FruitHeadText { get; set; }
 
 

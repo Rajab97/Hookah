@@ -10,7 +10,7 @@ namespace Hookah.Data
     public class GeneralDbContext:DbContext
     {
         public DbSet<OrderGridViewModel> OrderGridView { get; set; }
-
+        public DbSet<CallRequestGridViewModel> CallRequestGridView { get; set; }
         public GeneralDbContext(DbContextOptions<GeneralDbContext> options) : base(options)
         {
         }
@@ -29,6 +29,7 @@ namespace Hookah.Data
                             builder.Entity(entity).Property(nameof(BaseEntity.Version)).HasDefaultValue(1);
                         }*/
             builder.Entity<OrderGridViewModel>().ToView("OrdersGridView");
+            builder.Entity<CallRequestGridViewModel>().ToView("CallRequestsGridView");
         }
     }
 }

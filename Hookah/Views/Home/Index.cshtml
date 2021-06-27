@@ -1,4 +1,5 @@
 ﻿@model HomeFullViewModel
+@using Hookah.Controllers 
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -8,17 +9,17 @@
         <div class="background">
             <div class="image">
                 <picture>
-                        <source srcset="@(Model.HomeViewModel.ImageMB??"sources/img/_36A1636.jpg")"
-                                media="(max-width: 768px)" />
-                        <source srcset="@(Model.HomeViewModel.ImageLP??"sources/img/abdulaziz-sopranos-JddqEU-oBXM-unsplash.jpg")"
-                                media="(max-width: 1200px)" />
-                        <img src="@(Model.HomeViewModel.ImagePL??"sources/img/viktor-forgacs-r3SkTAMGeUg-unsplash.jpg")" />
+                    <source srcset="@(Model.HomeViewModel.ImageMB ?? "sources/img/default-mb.jpg")"
+                            media="(max-width: 768px)" />
+                    <source srcset="@(Model.HomeViewModel.ImagePL ?? "sources/img/default-pl.jpg" )"
+                            media="(max-width: 1200px)" />
+                    <img src="@(Model.HomeViewModel.ImageLP ?? "sources/img/default-lp.jpg")" />
                 </picture>
                 <div class="overlay"></div>
             </div>
             <div class="backgroundContent d-flex flex-column align-items-center justify-content-center">
-                <h2>@Html.Raw(Model.HomeViewModel?.ImageTitle)</h2>
-                <img src="sources/img/Harra_White+HH.png" alt="">
+                <h2>@Html.Raw(Model.HomeViewModel.ImageTitle)</h2>
+                <img src="@(Model.SiteConfiguration.CompanyLogoImage ?? "sources/img/company-icon.jpg")" alt="">
             </div>
         </div>
     </section>
@@ -28,7 +29,7 @@
                 <p>
                     @Html.Raw(Model.HomeViewModel?.ParagraphText)
                 </p>
-                <a href="tel:+994553246307" class="call-button">@Html.Raw(Model.HomeViewModel?.CallButtonText)</a>
+                <a href="tel:@Model.SiteConfiguration.PhoneNumberForCall" class="call-button">@Html.Raw(Model.HomeViewModel?.CallButtonText)</a>
             </div>
             <div class="experience-gallary">
                
@@ -41,7 +42,7 @@
                             </div>
                             <div class="experience-gallary-item-content d-flex flex-column justify-content-center align-items-center">
                                 <h1>@Html.Raw(item?.Name)</h1>
-                                <a href="@item?.Link" class="call-button">Learn more</a>
+                                <a href="@(item?.Link ?? Url.Action(nameof(HomeController.Index),"Home"))" class="call-button">@item.Name</a>
                             </div>
                         </div>
                     }

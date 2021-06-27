@@ -1,62 +1,92 @@
-﻿
+﻿@model ContactFullViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Contact";
 }
-
+@using Hookah.Resources
+@section Styles{
+    <style>
+        #sendBtn.active {
+            background-color: #fff;
+            color: #100806;
+        }
+    </style>
+}
 <main id="home">
     <section id="mainPhoto">
         <div class="background">
             <div class="image">
                 <picture>
-                    <source srcset="sources/img/stock-photo-176605205.jpg"
+                    <source srcset="@(Model.ContactInfo.ImageMB ?? "sources/img/default-mb.jpg")"
                             media="(max-width: 768px)" />
-                    <source srcset="sources/img/abdulaziz-sopranos-JddqEU-oBXM-unsplash.jpg"
+                    <source srcset="@(Model.ContactInfo.ImagePL ?? "sources/img/default-pl.jpg" )"
                             media="(max-width: 1200px)" />
-                    <img src="sources/img/GettyImages-1162987349_75e5c352-9622-401a-9beb-3f5576e880bd-prv.jpg" />
+                    <img src="@(Model.ContactInfo.ImageLP ?? "sources/img/default-lp.jpg")" />
                 </picture>
                 <div class="overlay"></div>
             </div>
             <div class="backgroundContent d-flex flex-column align-items-center justify-content-center">
-                <h2>HOOKAH CONTACT</h2>
-                <img src="sources/img/Harra_White+HH.png" alt="">
+                <h2>@Html.Raw(Model.ContactInfo.ImageTitle)</h2>
+                <img src="@(Model.SiteConfiguration.CompanyLogoImage ?? "sources/img/company-icon.jpg")" alt="">
             </div>
         </div>
     </section>
     <section id="contact-form" class="">
-        <h1>HAVE A QUESTION OR WANT US TO BE PART OF YOUR EVENT?  FILL OUT THE FORM BELOW AND WE WILL GET BACK TO YOU IMMEDIATELY.</h1>
-        <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="name" placeholder="Name*" autocomplete="off">
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="surname" placeholder="Surname*" autocomplete="off">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <input type="email" class="form-control" id="email" placeholder="Email*" autocomplete="off">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-12">
-                    <textarea class="form-control" id="additions" name="additions" placeholder="Message*" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6 d-flex align-items-center justify-content-start">
-                    <input type="number" maxlength="3" class="form-control" id="phone1" placeholder="###" autocomplete="off">
-                    <input type="number" maxlength="3" class="form-control" id="phone2" placeholder="###" autocomplete="off">
-                    <input type="number" maxlength="4" class="form-control" id="phone3" placeholder="####" autocomplete="off">
-                </div>
-                <div class="form-group col-md-6 d-flex align-items-center justify-content-start">
-                    <input type="number" maxlength="2" class="form-control" id="month" placeholder="MM" autocomplete="off">
-                    <input type="number" maxlength="2" class="form-control" id="day" placeholder="DD" autocomplete="off">
-                    <input type="number" maxlength="4" class="form-control" id="year" placeholder="YYYY" autocomplete="off">
-                </div>
-            </div>
-            <button type="submit" class="call-button">Send</button>
-        </form>
+        <h1>@Html.Raw(Model.ContactInfo?.FormTitle)</h1>
+        <partial name="_CallRequestPartial" model="new CallRequestViewModel()">
     </section>
 </main>
 
+@section Scripts{
+    <script src="~/sources/plugins/jquery-mask/jquery.mask.min.js"></script>
+    <script src="~/sources/plugins/sweetealert/sweetalert.min.js"></script>
+    <script>
+        (function ($) {
+            $(function () {
+                $('#phoneNumber').mask('(000) 000-0000');
+                $('#day').mask('00');
+                $('#year').mask('0000');
+                $('#month').mask('00');
+            });
+        })(jQuery);
+        var isSubmitted = false;
+        function onBegin() {
+            if (isSubmitted) {
+                return;
+            }
+            isSubmitted = true;
+            $("#sendBtn").prop('disabled', true);
+            $("#sendBtn").addClass("active");
+            util.loading(true, "#sendBtn");
+            console.log("begin");
+
+        }
+        function onSuccess(data) {
+            isSubmitted = false;
+            $("#sendBtn").prop('disabled', false);
+            util.loading(false, "#sendBtn");
+            $("#sendBtn").removeClass("active");
+
+            Swal.fire({
+                title: "@UI.RequestSendedSuccessfully",
+                text: "@Html.Raw(UI.RequestSendedSuccessfullyText)",
+                icon:"success",
+                showCancelButton: false,
+                confirmButtonText: "@UI.Yes"
+            }).then(function (result) {
+                if (result.value) {
+                    window.location.reload();
+                } else if (result.dismiss === "cancel") {
+
+                }
+            });
+
+        }
+        function onFailure() {
+            console.log("fail");
+            isSubmitted = false;
+            $("#sendBtn").prop('disabled', false);
+            util.loading(false, "#sendBtn");
+            $("#sendBtn").removeClass("active");
+        }
+    </script>
+}

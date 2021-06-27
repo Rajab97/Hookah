@@ -150,7 +150,7 @@ namespace Hookah
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped<IFaqService, FaqService>();
             services.AddScoped<IOrderService, OrderService>();
-
+            services.AddScoped<ICallRequestService, CallRequestService>();
         }
         private void RegisterServiceFacades(IServiceCollection services)
         {
@@ -168,6 +168,8 @@ namespace Hookah
             services.AddScoped<IContactServiceFacade, ContactServiceFacade>();
             services.AddScoped<IFaqServiceFacade, FaqServiceFacade>();
             services.AddScoped<IOrderServiceFacade, OrderServiceFacade>();
+            services.AddScoped<ICallRequestServiceFacade, CallRequestServiceFacade>();
+            services.AddScoped<IFaqQuestionServiceFacade, FaqQuestionServiceFacade>();
         }
     }
 }

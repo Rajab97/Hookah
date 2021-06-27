@@ -60,13 +60,22 @@ namespace Hookah.Servicefacades
         {
             try
             {
-                var data = _service.GetAll();
-                var model = _mapper.Map<IQueryable<HomeLinkViewModel>>(data);
-                return Result<IQueryable<HomeLinkViewModel>>.Succeed(model);
+                var dataResult = _service.GetAll();
+                if (dataResult.IsSucceed)
+                {
+                    var model = dataResult.Data.Select(m=>new HomeLinkViewModel() {
+                            ButtonText = m.ButtonText,
+                            ImagePath= m.ImagePath,
+                            Link = m.Link,
+                            Name = m.Name,
+                            Id = m.Id
+                    });
+                    return Result<IQueryable<HomeLinkViewModel>>.Succeed(model);
+                }
+                return Result<IQueryable<HomeLinkViewModel>>.Failure(dataResult.ExceptionMessage);
             }
             catch (ApplicationException ex)
             {
-               
                 return Result<IQueryable<HomeLinkViewModel>>.Failure(ex);
             }
             catch (Exception ex)

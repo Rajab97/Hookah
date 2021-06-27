@@ -1,0 +1,39 @@
+﻿@model SiteConfigurationViewModel
+<header>
+    <nav class="desktop-top">
+        <ul class="d-flex align-items-center justify-content-between">
+            <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
+            <li><a asp-controller="Catering" asp-action="Index">Catering</a></li>
+            <li><a class="nav-title" asp-controller="Home" asp-action="Index">Baku</a></li>
+            <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+            <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
+        </ul>
+    </nav>
+    <nav class="mobile-top">
+        <div class="hamburger-menu-button d-flex align-items-center justify-content-center">
+            <div class="hamburger-menu-button-item top">
+            </div>
+        </div>
+        <div class="mobile-nav-content">
+            <div class="inner d-flex align-items-center">
+                <ul>
+                    <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
+                    <li><a asp-controller="Catering" asp-action="Index">Catering</a></li>
+                    <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                    <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="desktop-scroll-top">
+        <div class="content">
+            <ul class="d-flex align-items-center justify-content-between">
+                <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
+                <li><a asp-controller="Catering" asp-action="Index">Catering</a></li>
+                <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                <li><a asp-controller="Faq" asp-action="Index">Faq</a></li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="header-nav-title">@Model.CompanyName</h1>
+</header>

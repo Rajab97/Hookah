@@ -79,6 +79,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new FAQ question.
+        /// </summary>
+        public static string AddFaqQuestion {
+            get {
+                return ResourceManager.GetString("AddFaqQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new gallery item.
         /// </summary>
         public static string AddFooterGalaryItem {
@@ -174,6 +183,15 @@ namespace Hookah.Resources {
         public static string AllUsers {
             get {
                 return ResourceManager.GetString("AllUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Answer.
+        /// </summary>
+        public static string Answer {
+            get {
+                return ResourceManager.GetString("Answer", resourceCulture);
             }
         }
         
@@ -291,6 +309,15 @@ namespace Hookah.Resources {
         public static string EditCatheringEvent {
             get {
                 return ResourceManager.GetString("EditCatheringEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit current FAQ question.
+        /// </summary>
+        public static string EditFaqQuestion {
+            get {
+                return ResourceManager.GetString("EditFaqQuestion", resourceCulture);
             }
         }
         
@@ -556,6 +583,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Message.
+        /// </summary>
+        public static string Message {
+            get {
+                return ResourceManager.GetString("Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My profile.
         /// </summary>
         public static string MyProfile {
@@ -700,6 +736,15 @@ namespace Hookah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Question.
+        /// </summary>
+        public static string Question {
+            get {
+                return ResourceManager.GetString("Question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remember me.
         /// </summary>
         public static string RememberMe {
@@ -714,6 +759,24 @@ namespace Hookah.Resources {
         public static string RequestCallButton {
             get {
                 return ResourceManager.GetString("RequestCallButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request sended succesfully.
+        /// </summary>
+        public static string RequestSendedSuccessfully {
+            get {
+                return ResourceManager.GetString("RequestSendedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your request has been accepted and you will be contacted soon.
+        /// </summary>
+        public static string RequestSendedSuccessfullyText {
+            get {
+                return ResourceManager.GetString("RequestSendedSuccessfullyText", resourceCulture);
             }
         }
         

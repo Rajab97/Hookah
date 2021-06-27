@@ -37,6 +37,7 @@ namespace Hookah.Data
 
         public DbSet<SiteConfiguration> SiteConfiguration { get; set; }
         public DbSet<Faq> Faqs { get; set; }
+        public DbSet<FaqQuestion> FaqQuestions { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<CallRequest> CallRequests { get; set; }
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

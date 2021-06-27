@@ -12,6 +12,7 @@ namespace Hookah.Areas.Administration.Models
     {
         [Display(ResourceType = typeof(UI), Name = nameof(UI.Title))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(100)]
         public string Title { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.ExtraHourPrice))]

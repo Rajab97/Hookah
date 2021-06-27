@@ -1,4 +1,5 @@
-﻿
+﻿@model MenuFullViewModel 
+@using Hookah.Controllers
 @{
     ViewData["Title"] = "Index";
 }
@@ -8,76 +9,47 @@
         <div class="background">
             <div class="image">
                 <picture>
-                    <source srcset="sources/img/stock-photo-176605205.jpg"
+                    <source srcset="@(Model.MenuViewModel.ImageMB ?? "sources/img/default-mb.jpg")"
                             media="(max-width: 768px)" />
-                    <source srcset="sources/img/abdulaziz-sopranos-JddqEU-oBXM-unsplash.jpg"
+                    <source srcset="@(Model.MenuViewModel.ImagePL ?? "sources/img/default-pl.jpg" )"
                             media="(max-width: 1200px)" />
-                    <img src="sources/img/DSC08037.jpg" />
+                    <img src="@(Model.MenuViewModel.ImageLP ?? "sources/img/default-lp.jpg")" />
                 </picture>
                 <div class="overlay"></div>
             </div>
             <div class="backgroundContent d-flex flex-column align-items-center justify-content-center">
-                <h2>HOOKAH MENU</h2>
-                <img src="sources/img/Harra_White+HH.png" alt="">
+                <h2>@Html.Raw(Model.MenuViewModel.ImageTitle)</h2>
+                <img src="@(Model.SiteConfiguration.CompanyLogoImage ?? "sources/img/company-icon.jpg")" alt="">
             </div>
         </div>
     </section>
     <section id="hookah-flavors">
-        <h1>Hookah flavors</h1>
+        <h1>@Html.Raw(Model.MenuViewModel?.FlavorsTitle)</h1>
         <ul class="row section-common-nopadding">
-            <li class="col-sm-4 col-md-4"><span>Ambrosia</span></li>
-            <li class="col-sm-4 col-md-4"><span>Blue mist</span></li>
-            <li class="col-sm-4 col-md-4"><span>Blueberry mint</span></li>
-            <li class="col-sm-4 col-md-4"><span>Citrus mist</span></li>
-            <li class="col-sm-4 col-md-4"><span>Double apple</span></li>
-            <li class="col-sm-4 col-md-4"><span>Grape mint</span></li>
-            <li class="col-sm-4 col-md-4"><span>Grapefruit</span></li>
-            <li class="col-sm-4 col-md-4"><span>Irish Peach</span></li>
-            <li class="col-sm-4 col-md-4"><span>Lemon mint</span></li>
-            <li class="col-sm-4 col-md-4"><span>Mint</span></li>
-            <li class="col-sm-4 col-md-4"><span>Mighty Freeze</span></li>
-            <li class="col-sm-4 col-md-4"><span>Orange mint</span></li>
-            <li class="col-sm-4 col-md-4"><span>Pineapple</span></li>
-            <li class="col-sm-4 col-md-4"><span>Pirates Cave</span></li>
-            <li class="col-sm-4 col-md-4"><span>Safari Melon Dew</span></li>
+            @foreach (var flavor in Model.MenuFlavorViews)
+            {
+                <li class="col-sm-4 col-md-4"><span>@flavor.Text</span></li>
+            }
         </ul>
         <p>
-            We pride ourselves in using the highest quality hookah tobacco, including starbuzz, al<br>
-            fakher, and fumari products.
-            <br><br>
-            If you don’t see the flavor you prefer, no need to worry, we will make special accommodations<br>
-            to have it available.
+            @Html.Raw(Model.MenuViewModel?.FlavorsText)
         </p>
     </section>
     <section id="hookah-headers" class="section-common">
-        <h1>FRUIT HEADS</h1>
-        <p>fresh hookah fruit heads are a great way to enhance any hookah experience! simply select a fruit, pick your choice of hookah flavor and we’ll take care of the rest. we make sure you and your guests enjoy each hookah fruit head to its fullest potential! </p>
+        <h1>@Html.Raw(Model.MenuViewModel?.FruitHeadTitle)</h1>
+        <p>@Html.Raw(Model.MenuViewModel?.FruitHeadText) </p>
         <div class="hookah-headers-gallary row">
-            <div class="hookah-headers-gallary-item col-md-6">
-                <img src="sources/img/header-gallary-1.jpg" alt="">
-                <div class="overlay"></div>
-                <h2>WATERMELON</h2>
-            </div>
-            <div class="hookah-headers-gallary-item col-md-6">
-                <img src="sources/img/header-gallary-2.jpg" alt="">
-                <div class="overlay"></div>
-                <h2>Orange</h2>
-            </div>
-            <div class="hookah-headers-gallary-item col-md-6">
-                <img src="sources/img/header-gallary-3.jpg" alt="">
-                <div class="overlay"></div>
-                <h2>Apple</h2>
-            </div>
-            <div class="hookah-headers-gallary-item col-md-6">
-                <img src="sources/img/header-gallary-4.jpg" alt="">
-                <div class="overlay"></div>
-                <h2>Pineapple</h2>
-            </div>
+            @foreach (var fruitHead in Model.MenuFruitHeadViews)
+            {
+                <div class="hookah-headers-gallary-item col-md-6">
+                    <img src="@fruitHead.ImagePath" alt="">
+                    <div class="overlay"></div>
+                    <h2>@fruitHead.Name</h2>
+                </div>
+            }
         </div>
-        <div class="call-buttons d-flex flex-md-row flex-column align-items-center justify-content-md-between justify-content-center">
-            <a href="#" class="call-button my-3 my0-md-0">Rent our Hookahs</a>
-            <a href="#" class="call-button my-3 my0-md-0">Have Harra cater your event</a>
-            <a href="#" class="call-button my-3 my0-md-0">Call harra now</a>
+        <div class="call-buttons d-flex flex-md-row flex-column align-items-center justify-content-md-center justify-content-center">
+            <a href="@Url.Action(nameof(CateringController.Index),"Catering")" class="call-button my-3 my0-md-0">Have @Model.SiteConfiguration.CompanyName cater your event</a>
         </div>
     </section>
 </main>

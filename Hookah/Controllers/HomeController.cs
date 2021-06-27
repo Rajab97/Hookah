@@ -18,28 +18,40 @@ namespace Hookah.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IHomeServiceFacade _homeServiceFacade;
         private readonly IHomeLinkServiceFacade _homeLinkServiceFacade;
-        
+        private readonly ISiteConfigurationServiceFacade _siteConfigurationServiceFacade;
 
-        public HomeController(ILogger<HomeController> logger,IHomeServiceFacade homeServiceFacade,IHomeLinkServiceFacade homeLinkServiceFacade)
+        public HomeController(ILogger<HomeController> logger,
+                                IHomeServiceFacade homeServiceFacade,
+                                    IHomeLinkServiceFacade homeLinkServiceFacade,
+                                        ISiteConfigurationServiceFacade siteConfigurationServiceFacade)
         {
             _logger = logger;
             _homeServiceFacade = homeServiceFacade;
             _homeLinkServiceFacade = homeLinkServiceFacade;
+            this._siteConfigurationServiceFacade = siteConfigurationServiceFacade;
         }
 
         public async Task<IActionResult> Index()
         {
+            HomeFullViewModel homeFullViewModel = new HomeFullViewModel() {
+                HomeLinkViewModels = new List<HomeLinkViewModel>(),
+                HomeViewModel = new HomeViewModel(),
+                SiteConfiguration = new SiteConfigurationViewModel()
+            };
             var homeModel = await _homeServiceFacade.GetDefaultModelAsync();
             var homeLinkModel =  _homeLinkServiceFacade.GetData();
-
-            if (homeModel.IsSucceed || homeLinkModel.IsSucceed)
-            {
-                HomeFullViewModel homeFullViewModel = new HomeFullViewModel();
+            var siteConfigResult = await _siteConfigurationServiceFacade.GetDefaultModelAsync();
+            if (homeModel.IsSucceed )
                 homeFullViewModel.HomeViewModel = homeModel.Data;
+
+            if (homeLinkModel.IsSucceed)
                 homeFullViewModel.HomeLinkViewModels = homeLinkModel.Data;
-                return View(homeFullViewModel);
-            }
-            return View(new HomeFullViewModel() {  HomeViewModel = new HomeViewModel(), HomeLinkViewModels = new List<HomeLinkViewModel>() });
+
+            if (siteConfigResult.IsSucceed)
+                homeFullViewModel.SiteConfiguration = siteConfigResult.Data;
+
+            return View(homeFullViewModel);
+
         }
 
         public IActionResult Privacy()

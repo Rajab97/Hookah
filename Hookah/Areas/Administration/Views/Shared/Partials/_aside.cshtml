@@ -4,10 +4,7 @@
     <!--begin::Brand-->
     <div class="brand flex-column-auto" id="kt_brand">
 
-        <!--begin::Logo-->
-        <a href="index.html" class="brand-logo">
-            <img alt="Logo" src="~/assets/media/logos/logo-light.png" />
-        </a>
+       
 
         <!--end::Logo-->
         <!--begin::Toggle-->
@@ -40,7 +37,7 @@
             <!--begin::Menu Nav-->
             <ul class="menu-nav">
                 <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="index.html" class="menu-link">
+                    <a href="@Url.Action(nameof(HomeController.Index),"Home",new { area="" })" class="menu-link">
                         <span class="svg-icon menu-icon">
 
                             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
@@ -54,137 +51,226 @@
 
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">Dashboard</span>
+                        <span class="menu-text">Website</span>
                     </a>
                 </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(MenuFruitHeadController.Index),MenuFruitHeadController.Name)" class="menu-link">
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-apple-alt"></i>
+                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <path d="M5,5 L5,15 C5,15.5948613 5.25970314,16.1290656 5.6719139,16.4954176 C5.71978107,16.5379595 5.76682388,16.5788906 5.81365532,16.6178662 C5.82524933,16.6294602 15,7.45470952 15,7.45470952 C15,6.9962515 15,6.17801499 15,5 L5,5 Z M5,3 L15,3 C16.1045695,3 17,3.8954305 17,5 L17,15 C17,17.209139 15.209139,19 13,19 L7,19 C4.790861,19 3,17.209139 3,15 L3,5 C3,3.8954305 3.8954305,3 5,3 Z" fill="#000000" fill-rule="nonzero" transform="translate(10.000000, 11.000000) rotate(-315.000000) translate(-10.000000, -11.000000)" />
+                                    <path d="M20,22 C21.6568542,22 23,20.6568542 23,19 C23,17.8954305 22,16.2287638 20,14 C18,16.2287638 17,17.8954305 17,19 C17,20.6568542 18.3431458,22 20,22 Z" fill="#000000" opacity="0.3" />
+                                </g>
+                            </svg>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">Fruit Heads</span>
+                        <span class="menu-text">Home Page</span>
+                        <i class="menu-arrow"></i>
                     </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                <span class="menu-link">
+                                    <span class="menu-text">Home Page</span>
+                                </span>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(HomeController.Index),HomeController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Home Page Configuration</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(HomeLinkController.Index),HomeLinkController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Home Page Links</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(MenuController.Index),MenuController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Menu Page Configuration</span>
+
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <i class="far fa-calendar-alt menu-icon"></i>
+                        <span class="menu-text">Catering Page</span>
+                        <i class="menu-arrow"></i>
                     </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                <span class="menu-link">
+                                    <span class="menu-text">Catering Page</span>
+                                </span>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(CatheringController.Index),CatheringController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Cathering Page Configuration</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(CatheringEventController.Index),CatheringEventController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Cathering Events</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(HowItWorksStepController.Index),HowItWorksStepController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">How It Works Steps</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(PackageController.Index),PackageController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Packages</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(MenuFlavorsController.Index),MenuFlavorsController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Menu Flavors</span>
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <i class="fas fa-utensils menu-icon"></i>
+                        <span class="menu-text">Menu Page</span>
+                        <i class="menu-arrow"></i>
                     </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                <span class="menu-link">
+                                    <span class="menu-text">Menu Page</span>
+                                </span>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(MenuController.Index),MenuController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Menu Page Configuration</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(MenuFruitHeadController.Index),MenuFruitHeadController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Fruit Heads</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(MenuFlavorsController.Index),MenuFlavorsController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Menu Flavors</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(HomeController.Index),HomeController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Home Page Configuration</span>
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <i class="fas fa-globe menu-icon"></i>
+                        <span class="menu-text">Site Configuration</span>
+                        <i class="menu-arrow"></i>
                     </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                <span class="menu-link">
+                                    <span class="menu-text">Site Configuration</span>
+                                </span>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(SiteConfigurationController.Index),SiteConfigurationController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Common Configurations</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(FooterGalaryItemController.Index),FooterGalaryItemController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Footer Gallery</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(HomeLinkController.Index),HomeLinkController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Home Page Links</span>
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <i class="far fa-question-circle menu-icon"></i>
+                        <span class="menu-text">FAQ Page</span>
+                        <i class="menu-arrow"></i>
                     </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                <span class="menu-link">
+                                    <span class="menu-text">FAQ Page</span>
+                                </span>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(FaqController.Index),FaqController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">FAQ Page Configuration</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="@Url.Action(nameof(FaqQuestionController.Index),FaqQuestionController.Name)" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">FAQ Page Questions</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(CatheringController.Index),CatheringController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Cathering Page Configuration</span>
-                    </a>
-                </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(CatheringEventController.Index),CatheringEventController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Cathering Events</span>
-                    </a>
-                </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(HowItWorksStepController.Index),HowItWorksStepController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">How It Works Steps</span>
-                    </a>
-                </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
+                <li class="menu-item" aria-haspopup="true">
                     <a href="@Url.Action(nameof(ContactController.Index),ContactController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Contact</span>
+                        <i class="far fa-address-book menu-icon"></i>
+                        <span class="menu-text">Contact Page</span>
                     </a>
                 </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(FooterGalaryItemController.Index),FooterGalaryItemController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Footer Gallery</span>
-                    </a>
-                </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(SiteConfigurationController.Index),SiteConfigurationController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Site Configurations</span>
-                    </a>
-                </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="@Url.Action(nameof(FaqController.Index),FaqController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Faq</span>
-                    </a>
-                </li>
-                <li class="menu-item menu-item-active" aria-haspopup="true">
+               
+                <li class="menu-item" aria-haspopup="true">
                     <a href="@Url.Action(nameof(OrderController.Index),OrderController.Name)" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                            <i class="fas fa-book-reader"></i>
-                            <!--end::Svg Icon-->
-                        </span>
+                        <i class="fas fa-wallet menu-icon"></i>
                         <span class="menu-text">Orders</span>
+                    </a>
+                </li>
+                <li class="menu-item" aria-haspopup="true">
+                    <a href="@Url.Action(nameof(CallRequestController.Index),CallRequestController.Name)" class="menu-link">
+                        <i class="fas fa-phone-volume menu-icon"></i>
+                        <span class="menu-text">Call Requests</span>
                     </a>
                 </li>
             </ul>

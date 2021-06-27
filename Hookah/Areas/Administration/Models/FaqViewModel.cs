@@ -13,6 +13,7 @@ namespace Hookah.Areas.Administration.Models
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.TopImageTitle))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(100)]
         public string ImageTitle { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.ImageLP))]

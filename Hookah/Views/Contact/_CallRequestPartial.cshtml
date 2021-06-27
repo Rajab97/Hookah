@@ -1,0 +1,51 @@
+﻿@model CallRequestViewModel
+@using Hookah.Resources
+<form asp-action="SendCallRequest" asp-controller="Contact" method="post"
+                          data-ajax="true"
+                          data-ajax-method="POST"
+                          data-ajax-begin="onBegin"
+                          data-ajax-success="onSuccess"
+                          data-ajax-failure="onFailure" style="text-align:left;">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input asp-for="FirstName" type="text" class="form-control" id="name" placeholder="@UI.FirstName*" autocomplete="off">
+            <span asp-validation-for="FirstName" class="text-light text-left mt-3 ml-2"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <input asp-for="LastName" type="text" class="form-control" id="surname" placeholder="@UI.LastName*" autocomplete="off">
+            <span asp-validation-for="LastName" class="text-light text-left mt-3 ml-2"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <input asp-for="Email" type="email" class="form-control" id="email" placeholder="@UI.Email*" autocomplete="off">
+            <span asp-validation-for="Email" class="text-light text-left mt-3 ml-2"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-12">
+            <textarea asp-for="Message" class="form-control" id="additions" name="additions" placeholder="@UI.Message*" rows="3"></textarea>
+            <span asp-validation-for="Message" class="text-light text-left mt-3 ml-2"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input asp-for="PhoneNumber" class="form-control" id="phoneNumber" placeholder="(###) ### ####" autocomplete="off">
+            <span asp-validation-for="PhoneNumber" class="text-light text-left mt-3 ml-2"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <div class="form-group d-flex align-items-center justify-content-start">
+                <input asp-for="Month" min="1" max="12" type="number" maxlength="2" class="form-control" id="month" placeholder="MM" autocomplete="off">
+                <input asp-for="Day" min="1" max="31" type="number" maxlength="2" class="form-control" id="day" placeholder="DD" autocomplete="off">
+                <input asp-for="Year" min="2021" max="2099" type="number" maxlength="4" class="form-control" id="year" placeholder="YYYY" autocomplete="off">
+            </div>
+            <div>
+                <span asp-validation-for="Month" class="d-block text-light text-left mt-3 ml-2"></span>
+                <span asp-validation-for="Day" class="d-block text-light text-left mt-3 ml-2"></span>
+                <span asp-validation-for="Year" class=" d-block text-light text-left mt-3 ml-2"></span>
+            </div>
+        </div>
+       
+    </div>
+    <button type="submit" id="sendBtn" style="position:relative;" class="call-button">Send</button>
+</form>

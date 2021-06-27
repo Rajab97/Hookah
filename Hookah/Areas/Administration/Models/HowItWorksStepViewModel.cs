@@ -13,6 +13,7 @@ namespace Hookah.Areas.Administration.Models
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.StepText))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(500)]
         public string Text { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.OrderNumber))]

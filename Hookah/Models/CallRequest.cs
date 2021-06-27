@@ -13,6 +13,7 @@ namespace Hookah.Models
         public string Email { get; set; }
         public string Message { get; set; }
         public string PhoneNumber { get; set; }
-        public string EventDate { get; set; }
+        public DateTime? EventDate { get; set; }
+        public bool IsContacted { get; set; }
     }
 }

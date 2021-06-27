@@ -13,14 +13,17 @@ namespace Hookah.Areas.Administration.Models
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.Title))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(50)]
         public string Name { get; set; }
         [Display(ResourceType = typeof(UI), Name = nameof(UI.PreviousUploadedImage))]
         public string ImagePath { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.Link))]
+        [MaxLength(500)]
         public string Link { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.ButtonText))]
+        [MaxLength(50)]
         public string ButtonText { get; set; }
         public List<string> Base64String { get; set; }
         public List<string> FileName { get; set; }

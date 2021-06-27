@@ -13,15 +13,18 @@ namespace Hookah.ViewModels
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.FirstName))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(100)]
         public string FirstName { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.PhoneNumber))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
         [RegularExpression(pattern: @"^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$" , ErrorMessage = "The phone number is not in the correct format.(555) 555-1234")]
+        [MaxLength(25)]
         public string PhoneNumber { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.Email))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(100)]
         public string Email { get; set; }
 
         [Range(maximum:12,minimum:1 , ErrorMessageResourceType = typeof(ExceptionMessages) , ErrorMessageResourceName = nameof(ExceptionMessages.MonthField))]
@@ -45,9 +48,11 @@ namespace Hookah.ViewModels
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.Address))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(1000)]
         public string Address { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.Additions))]
+        [MaxLength(2000)]
         public string Additions { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.Package))]

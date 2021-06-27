@@ -69,7 +69,7 @@
                                 <hr>
                                 <h5>From <strong>$@package.InitialPrice</strong></h5>
                             </div>
-                            <a href="#" class="call-button">Order</a>
+                            <a href="javascript:;" data-id="@package.Id" class="call-button order-package">Order</a>
                         </div>
                     </div>
                 </div>
@@ -109,6 +109,13 @@
     <script src="~/sources/plugins/jquery-mask/jquery.mask.min.js"></script>
     <script src="~/sources/plugins/sweetealert/sweetalert.min.js"></script>
     <script>
+        $(".order-package").click(function (e) {
+            let packageId = $(this).data("id");
+            $("#PackageId").val(packageId);
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#cathering-order").offset().top
+            }, 2000);
+        });
         (function ($) {
             $(function () {
                 $('#tel').mask('(000) 000-0000');

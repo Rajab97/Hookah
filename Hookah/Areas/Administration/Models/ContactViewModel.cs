@@ -13,6 +13,7 @@ namespace Hookah.Areas.Administration.Models
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.TopImageTitle))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(100)]
         public string ImageTitle { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.ImageLP))]
@@ -26,6 +27,7 @@ namespace Hookah.Areas.Administration.Models
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.FormTile))]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = nameof(ValidationMessages.Required))]
+        [MaxLength(400)]
         public string FormTitle { get; set; }
         public List<string> Base64String { get; set; }
         public List<string> FileName { get; set; }

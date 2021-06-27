@@ -12,6 +12,7 @@ namespace Hookah.Areas.Administration.Models
         public Guid Id { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.Info))]
+        [MaxLength(500)]
         public string Text { get; set; }
 
         [Display(ResourceType = typeof(UI), Name = nameof(UI.PreviousUploadedImage))]
