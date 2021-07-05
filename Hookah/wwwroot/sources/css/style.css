@@ -735,22 +735,22 @@ form .call-button {
 }
 
 @media (min-width: 992px) {
-  nav.desktop-top ul li a:hover {
-    color: #fff;
-  }
-  nav.desktop-top ul li a.nav-title {
-    font-family: 'Bungee Outline', cursive;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #fff;
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    line-height: 1.2em;
-    font-size: 45px;
-  }
+    nav .desktop-top ul li a:hover {
+        color: #fff;
+    }
+    nav.desktop-top ul li a.nav-title {
+        font-family: 'Bungee Outline', cursive;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #fff;
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 1.2em;
+        margin-bottom: 15px;
+    }
 }
 
 @media screen and (min-width: 992px) and (min-width: 576px) {

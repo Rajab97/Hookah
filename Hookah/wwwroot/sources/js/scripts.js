@@ -39,6 +39,47 @@ jQuery(function($) {
 //Gallary PopUpSlider
 var gallery = $('.gallery  a').simpleLightbox({
         docClose:false
+});
+$(window).ready(function () {
+    $("#pageLoad").delay(500).fadeOut("slow", function () {
+        $("body").css({ overflow: "auto" });
     });
+});
+$(window).on("load", function () {
+    loadImages();
+});
+
+
+function loadImages() {
+    let images = $(".unloadedImage");
+    
+    for (let image of images) {
+        let newImage = document.createElement("img");
+        newImage.src = $(image).data("src");
+        $(newImage).on('load', function () {
+            $(image).attr("src", this.src);
+           /* let sources = $(image).siblings("source");
+            let loadedSrc = sources[sources.length - 1];
+            let loaded = $(loadedSrc).attr('loaded');
+            if (typeof loaded !== typeof undefined && loaded !== false) {
+                // $(sources[sources.length - 1]).remove();
+                // $(image).parent().prepend(loadedSrc);
+                $(image).parent().prepend(loadedSrc);
+                //$(sources[0]).attr("srcset", $(loadedSrc).attr("srcset"));
+                //$(sources[0]).attr("type", $(loadedSrc).attr("type"));
+            }*/
+            $(image).removeClass("unloadedImage");
+            if ($(image).parent().parent().hasClass("blur")) {
+                $(image).parent().parent().removeClass("blur");
+                $(image).addClass("unblur");
+            }
+        });
+        $(newImage).on('error', function () {
+            $(image).removeClass("unloadedImage");
+            $(image).parent().parent().removeClass("blur");
+            $(image).addClass("unblur");
+        });
+    }
+}
     
     
